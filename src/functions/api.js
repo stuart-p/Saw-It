@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export const fetchArticles = () => {
-  return axios
-    .get("https://sawit-server.herokuapp.com/api/articles")
-    .then(res => {
-      return res.data.articles;
-    });
+const baseURL = "https://sawit-server.herokuapp.com/api/";
+
+export const fetchArticles = ({ topic }) => {
+  return axios.get(baseURL + "articles", { params: { topic } }).then(res => {
+    return res.data.articles;
+  });
 };
 
 export const fetchTopics = () => {
