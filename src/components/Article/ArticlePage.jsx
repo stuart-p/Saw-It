@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ArticleDetails from "./ArticleDetails";
 import * as api from "../../functions/api";
+import CommentsList from "../Comments/CommentsList";
 
 class ArticlePage extends Component {
   state = {
@@ -24,6 +25,7 @@ class ArticlePage extends Component {
       <section>
         <h2>Article...</h2>
         <ArticleDetails {...this.state.article} />
+        <CommentsList />
       </section>
     );
   }
