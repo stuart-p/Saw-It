@@ -25,7 +25,7 @@ class ArticlePage extends Component {
       <section>
         <h2>Article...</h2>
         <ArticleDetails {...this.state.article} />
-        <CommentsList />
+        <CommentsList article_id={this.props.article_id} />
       </section>
     );
   }

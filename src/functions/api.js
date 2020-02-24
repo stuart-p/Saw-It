@@ -21,3 +21,9 @@ export const fetchTopics = () => {
       return res.data.topics;
     });
 };
+
+export const fetchCommentsOnArticle = article_id => {
+  return axios.get(baseURL + `articles/${article_id}/comments`).then(res => {
+    return res.data.comments;
+  });
+};
