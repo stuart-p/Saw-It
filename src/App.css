@@ -13,4 +13,9 @@ body {
   flex-wrap: wrap;
 }
 
+.articleDetails {
+  background-color: coral;
+  border: solid black 1px;
+}
+
 /*temp styling ends ===================================*/

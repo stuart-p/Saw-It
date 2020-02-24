@@ -8,6 +8,12 @@ export const fetchArticles = ({ topic }) => {
   });
 };
 
+export const fetchSpecificArticle = article_id => {
+  return axios.get(baseURL + `articles/${article_id}`).then(res => {
+    return res.data.article;
+  });
+};
+
 export const fetchTopics = () => {
   return axios
     .get("https://sawit-server.herokuapp.com/api/topics")
