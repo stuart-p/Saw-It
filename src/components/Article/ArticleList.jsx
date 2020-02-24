@@ -10,7 +10,6 @@ class ArticleList extends Component {
     const fetchParams = {
       topic: this.props.topicSlug
     };
-    console.log(fetchParams.topic);
     api.fetchArticles(fetchParams).then(articleArray => {
       this.setState({
         articleArray
