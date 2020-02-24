@@ -1,5 +1,6 @@
 import React from "react";
 import TopicList from "../Topic/TopicList";
+import { Link } from "@reach/router";
 
 class Header extends React.Component {
   state = {
@@ -12,12 +13,21 @@ class Header extends React.Component {
     });
   };
 
+  closeTopicsMenu = () => {
+    this.setState({ topicsShowing: false });
+  };
+
   render() {
     return (
       <div>
         <h1>Nc-news</h1>
+        <Link to="/">
+          <button>home</button>
+        </Link>
         <button onClick={this.toggleTopicsShowing}>topics</button>
-        {this.state.topicsShowing && <TopicList />}
+        {this.state.topicsShowing && (
+          <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+        )}
       </div>
     );
   }

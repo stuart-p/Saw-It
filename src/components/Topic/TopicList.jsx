@@ -18,7 +18,13 @@ class TopicList extends Component {
     return (
       <ul>
         {this.state.topicArray.map(topic => {
-          return <TopicCard {...topic} key={topic.slug} />;
+          return (
+            <TopicCard
+              {...topic}
+              key={topic.slug}
+              closeTopicsMenu={this.props.closeTopicsMenu}
+            />
+          );
         })}
       </ul>
     );
