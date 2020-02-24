@@ -4,19 +4,19 @@ import ArticleCard from "./ArticleCard";
 
 class ArticleList extends Component {
   state = {
-    articleList: []
+    articleArray: []
   };
   componentDidMount = () => {
     api.fetchArticles().then(articleArray => {
       this.setState({
-        articleList: articleArray
+        articleArray
       });
     });
   };
   render() {
     return (
       <ul>
-        {this.state.articleList.map(article => {
+        {this.state.articleArray.map(article => {
           return <ArticleCard {...article} key={article.article_id} />;
         })}
       </ul>
