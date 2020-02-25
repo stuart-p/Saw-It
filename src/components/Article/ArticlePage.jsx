@@ -8,6 +8,22 @@ class ArticlePage extends Component {
     article: {}
   };
 
+  voteOnArticle = (article_id, voteChangeValue) => {
+    return new Promise(resolve => {
+      this.setState(currentState => {
+        console.log(currentState.article.votes);
+        return {
+          article: {
+            ...currentState.article,
+            votes: currentState.article.votes + voteChangeValue
+          }
+        };
+      }, resolve);
+    }).then(() => {
+      api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
+    });
+  };
+
   componentDidMount = () => {
     api.fetchSpecificArticle(this.props.article_id).then(article => {
       this.setState({ article });
@@ -24,7 +40,12 @@ class ArticlePage extends Component {
     return (
       <section>
         <h2>Article...</h2>
-        <ArticleDetails {...this.state.article} />
+        <ArticleDetails
+          {...this.state.article}
+          {...this.props}
+          article_id={this.props.article_id}
+          voteOnArticle={this.voteOnArticle}
+        />
         <CommentsList article_id={this.props.article_id} {...this.props} />
       </section>
     );
