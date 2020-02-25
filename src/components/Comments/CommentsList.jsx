@@ -12,7 +12,7 @@ class CommentsList extends Component {
       comment_id: -1,
       votes: 0,
       created_at: new Date().toUTCString(),
-      author: "jessjelly",
+      author: this.props.loggedInAs,
       body: commentText
     };
     return new Promise(resolve => {
@@ -23,7 +23,7 @@ class CommentsList extends Component {
       .then(() => {
         return api.postCommentToArticle(
           this.props.article_id,
-          "jessjelly",
+          this.props.loggedInAs,
           commentText
         );
       })

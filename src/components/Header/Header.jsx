@@ -21,6 +21,7 @@ class Header extends React.Component {
     return (
       <div>
         <h1>Nc-news</h1>
+        <h3>hello, {this.props.loggedInAs}!</h3>
         <Link to="/">
           <button>home</button>
         </Link>
