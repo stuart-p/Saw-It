@@ -22,7 +22,7 @@ class App extends React.Component {
         <Header loggedInAs={this.state.loggedInAs} />
         <Router>
           <LandingPage path="/" loggedInAs={this.state.loggedInAs} />
-          <TopicPage path="/:topicSlug" />
+          <TopicPage path="/:topicSlug" loggedInAs={this.state.loggedInAs} />
           <ArticlePage
             path="/:topicSlug/:article_id"
             loggedInAs={this.state.loggedInAs}

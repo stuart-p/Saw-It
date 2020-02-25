@@ -15,7 +15,7 @@ const CommentCard = ({
       <h3>{author === loggedInAs ? "you" : author} posted</h3>
       <p>{body}</p>
       <VoteElement voteOnElement={voteOnComment} element_id={comment_id}>
-        <p>{votes}</p>
+        <p>votes: {votes}</p>
       </VoteElement>
       {author === loggedInAs && (
         <button onClick={() => deleteCommentFromArticle(comment_id)}>
