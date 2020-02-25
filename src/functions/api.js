@@ -49,3 +49,11 @@ export const deleteCommentFromArticle = comment_id => {
     console.log(res);
   });
 };
+
+export const modifyVotesOnElement = (patchRoute, voteChangeValue) => {
+  return axios
+    .patch(baseURL + patchRoute, { inc_votes: voteChangeValue })
+    .then(res => {
+      console.log(res);
+    });
+};

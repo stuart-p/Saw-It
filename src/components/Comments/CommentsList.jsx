@@ -55,6 +55,25 @@ class CommentsList extends Component {
     });
   };
 
+  voteOnComment = (comment_id, voteChangeValue) => {
+    return new Promise(resolve => {
+      this.setState(currentState => {
+        const updatedCommentsOnVotesArray = currentState.commentsArray.map(
+          comment => {
+            if (comment.comment_id === comment_id) {
+              return { ...comment, votes: comment.votes + voteChangeValue };
+            } else {
+              return { ...comment };
+            }
+          }
+        );
+        return { commentsArray: updatedCommentsOnVotesArray };
+      }, resolve);
+    }).then(() => {
+      api.modifyVotesOnElement(`comments/${comment_id}`, voteChangeValue);
+    });
+  };
+
   componentDidMount = () => {
     api.fetchCommentsOnArticle(this.props.article_id).then(commentsArray => {
       this.setState({ commentsArray });
@@ -71,6 +90,7 @@ class CommentsList extends Component {
                 {...comment}
                 deleteCommentFromArticle={this.deleteCommentFromArticle}
                 loggedInAs={this.props.loggedInAs}
+                voteOnComment={this.voteOnComment}
               />
             );
           })}
