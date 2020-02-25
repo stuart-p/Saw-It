@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import * as api from "../../functions/api";
 import ArticleCard from "./ArticleCard";
 import SortArticles from "../UI/SortArticles";
+import LoadingScreen from "../ErrorHandling/LoadingScreen";
 
 class ArticleList extends Component {
   state = {
     articleArray: [],
-    queries: {}
+    queries: {},
+    isLoading: true
   };
 
   setQueryValues = queries => {
@@ -19,7 +21,8 @@ class ArticleList extends Component {
     };
     api.fetchArticles(fetchParams).then(articleArray => {
       this.setState({
-        articleArray
+        articleArray,
+        isLoading: false
       });
     });
   };
@@ -49,11 +52,18 @@ class ArticleList extends Component {
         topic: this.props.topicSlug,
         ...this.state.queries
       };
-      api.fetchArticles(fetchParams).then(articleArray => {
-        this.setState({
-          articleArray
+      return new Promise(resolve => {
+        this.setState({ isLoading: true }, resolve);
+      })
+        .then(() => {
+          return api.fetchArticles(fetchParams);
+        })
+        .then(articleArray => {
+          this.setState({
+            articleArray,
+            isLoading: false
+          });
         });
-      });
     } else if (
       !Object.values(this.state.queries).every((query, iteratee) => {
         return query === Object.values(prevState.queries)[iteratee];
@@ -63,16 +73,27 @@ class ArticleList extends Component {
         topic: this.props.topicSlug,
         ...this.state.queries
       };
-      api.fetchArticles(fetchParams).then(articleArray => {
-        this.setState({
-          articleArray
+      return new Promise(resolve => {
+        this.setState({ isLoading: true }, resolve);
+      })
+        .then(() => {
+          // console.log("here in article list");
+          return api.fetchArticles(fetchParams);
+        })
+        .then(articleArray => {
+          // console.log(articleArray);
+          this.setState({
+            articleArray,
+            isLoading: false
+          });
         });
-      });
     }
   };
   render() {
+    // console.log(this.state);
     return (
       <section>
+        {this.state.isLoading && <LoadingScreen />}
         <SortArticles setQueryValues={this.setQueryValues} />
         <ul className="articleList">
           {this.state.articleArray.map(article => {

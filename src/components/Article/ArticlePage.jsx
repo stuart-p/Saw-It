@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import ArticleDetails from "./ArticleDetails";
 import * as api from "../../functions/api";
 import CommentsList from "../Comments/CommentsList";
+import LoadingScreen from "../ErrorHandling/LoadingScreen";
 
 class ArticlePage extends Component {
   state = {
-    article: {}
+    article: {},
+    isLoading: true
   };
 
   voteOnArticle = (article_id, voteChangeValue) => {
@@ -26,20 +28,26 @@ class ArticlePage extends Component {
 
   componentDidMount = () => {
     api.fetchSpecificArticle(this.props.article_id).then(article => {
-      this.setState({ article });
+      this.setState({ article, isLoading: false });
     });
   };
   componentDidUpdate = (prevProps, prevState) => {
     if (this.props.article_id !== prevProps.article_id) {
-      api.fetchSpecificArticle(this.props.article_id).then(article => {
-        this.setState({ article });
-      });
+      return new Promise(resolve => {
+        this.setState({ isLoading: true }, resolve);
+      })
+        .then(() => {
+          return api.fetchSpecificArticle(this.props.article_id);
+        })
+        .then(article => {
+          this.setState({ article, isLoading: false });
+        });
     }
   };
   render() {
     return (
       <section>
-        <h2>Article...</h2>
+        {this.state.isLoading && <LoadingScreen />}
         <ArticleDetails
           {...this.state.article}
           {...this.props}

@@ -6,10 +6,10 @@ export const fetchArticles = queries => {
   Object.keys(queries).forEach(query => {
     if (queries[query] === "") queries[query] = null;
   });
-
   return axios
     .get(baseURL + "articles", { params: { ...queries } })
     .then(res => {
+      // console.log("here");
       return res.data.articles;
     });
 };
@@ -46,7 +46,7 @@ export const postCommentToArticle = (article_id, username, body) => {
 
 export const deleteCommentFromArticle = comment_id => {
   return axios.delete(baseURL + `comments/${comment_id}`).then(res => {
-    console.log(res);
+    // console.log(res);
   });
 };
 
@@ -54,6 +54,6 @@ export const modifyVotesOnElement = (patchRoute, voteChangeValue) => {
   return axios
     .patch(baseURL + patchRoute, { inc_votes: voteChangeValue })
     .then(res => {
-      console.log(res);
+      // console.log(res);
     });
 };
