@@ -2,10 +2,16 @@ import axios from "axios";
 
 const baseURL = "https://sawit-server.herokuapp.com/api/";
 
-export const fetchArticles = ({ topic }) => {
-  return axios.get(baseURL + "articles", { params: { topic } }).then(res => {
-    return res.data.articles;
+export const fetchArticles = queries => {
+  Object.keys(queries).forEach(query => {
+    if (queries[query] === "") queries[query] = null;
   });
+
+  return axios
+    .get(baseURL + "articles", { params: { ...queries } })
+    .then(res => {
+      return res.data.articles;
+    });
 };
 
 export const fetchSpecificArticle = article_id => {

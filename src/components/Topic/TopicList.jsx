@@ -16,7 +16,7 @@ class TopicList extends Component {
   };
   render() {
     return (
-      <ul>
+      <ul className="topicList">
         {this.state.topicArray.map(topic => {
           return (
             <TopicCard
