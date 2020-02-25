@@ -8,7 +8,35 @@ class CommentsList extends Component {
   };
 
   addCommentToArticle = commentText => {
-    console.log(commentText);
+    const tempComment = {
+      comment_id: -1,
+      votes: 0,
+      created_at: new Date().toUTCString(),
+      author: "jessjelly",
+      body: commentText
+    };
+    return new Promise(resolve => {
+      this.setState(currentState => {
+        return { commentsArray: [tempComment, ...currentState.commentsArray] };
+      }, resolve);
+    })
+      .then(() => {
+        return api.postCommentToArticle(
+          this.props.article_id,
+          "jessjelly",
+          commentText
+        );
+      })
+      .then(postedCommentObject => {
+        const commentsArrayWithPostInserted = this.state.commentsArray.map(
+          comment => {
+            if (comment === tempComment) {
+              return postedCommentObject;
+            } else return { ...comment };
+          }
+        );
+        this.setState({ commentsArray: commentsArrayWithPostInserted });
+      });
   };
 
   componentDidMount = () => {
