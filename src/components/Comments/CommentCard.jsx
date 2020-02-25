@@ -5,16 +5,19 @@ const CommentCard = ({
   author,
   body,
   votes,
-  deleteCommentFromArticle
+  deleteCommentFromArticle,
+  loggedInAs
 }) => {
   return (
     <li>
-      <h3>{author}</h3>
+      <h3>{author === loggedInAs ? "you" : author} posted</h3>
       <p>{body}</p>
       <h4>{votes}</h4>
-      <button onClick={() => deleteCommentFromArticle(comment_id)}>
-        delete comment
-      </button>
+      {author === loggedInAs && (
+        <button onClick={() => deleteCommentFromArticle(comment_id)}>
+          delete comment
+        </button>
+      )}
     </li>
   );
 };

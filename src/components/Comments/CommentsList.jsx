@@ -70,6 +70,7 @@ class CommentsList extends Component {
                 key={comment.comment_id}
                 {...comment}
                 deleteCommentFromArticle={this.deleteCommentFromArticle}
+                loggedInAs={this.props.loggedInAs}
               />
             );
           })}
