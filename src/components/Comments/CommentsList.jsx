@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../functions/api";
 import AddComment from "../UI/AddComment";
+import CommentCard from "./CommentCard";
 
 class CommentsList extends Component {
   state = {
@@ -39,6 +40,21 @@ class CommentsList extends Component {
       });
   };
 
+  deleteCommentFromArticle = comment_id => {
+    return new Promise(resolve => {
+      this.setState(currentState => {
+        const commentsArrayWithCommentDeleted = currentState.commentsArray.filter(
+          comment => {
+            return comment.comment_id !== comment_id;
+          }
+        );
+        return { commentsArray: commentsArrayWithCommentDeleted };
+      }, resolve);
+    }).then(() => {
+      api.deleteCommentFromArticle(comment_id);
+    });
+  };
+
   componentDidMount = () => {
     api.fetchCommentsOnArticle(this.props.article_id).then(commentsArray => {
       this.setState({ commentsArray });
@@ -50,11 +66,11 @@ class CommentsList extends Component {
         <ul>
           {this.state.commentsArray.map(comment => {
             return (
-              <li key={comment.comment_id}>
-                <h3>{comment.author}</h3>
-                <p>{comment.body}</p>
-                <h4>{comment.votes}</h4>
-              </li>
+              <CommentCard
+                key={comment.comment_id}
+                {...comment}
+                deleteCommentFromArticle={this.deleteCommentFromArticle}
+              />
             );
           })}
         </ul>

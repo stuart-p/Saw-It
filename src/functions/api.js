@@ -43,3 +43,9 @@ export const postCommentToArticle = (article_id, username, body) => {
       return postedComment;
     });
 };
+
+export const deleteCommentFromArticle = comment_id => {
+  return axios.delete(baseURL + `comments/${comment_id}`).then(res => {
+    console.log(res);
+  });
+};
