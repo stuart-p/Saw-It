@@ -38,4 +38,31 @@ button {
   padding: 0 5px;
 }
 
+/* ========= */
+.commentCard {
+  background-color: gold;
+  border: solid black 1px;
+  list-style-type: none;
+}
+
+/* =========== */
+.voteElement {
+  background-color: firebrick;
+  border: solid black 1px;
+  display: flex;
+  height: min-content;
+  justify-content: center;
+  width: min-content;
+  margin: 0 auto;
+}
+.voteElement p {
+  margin: auto;
+}
+.voteElement button {
+  background-color: floralwhite;
+  padding: 2px 10px;
+  margin: 0 10px;
+  height: 40px;
+}
+
 /*temp styling ends ===================================*/

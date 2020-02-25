@@ -1,4 +1,5 @@
 import React from "react";
+import VoteElement from "../UI/VoteElement";
 
 const CommentCard = ({
   comment_id,
@@ -9,10 +10,12 @@ const CommentCard = ({
   loggedInAs
 }) => {
   return (
-    <li>
+    <li className="commentCard">
       <h3>{author === loggedInAs ? "you" : author} posted</h3>
       <p>{body}</p>
-      <h4>{votes}</h4>
+      <VoteElement>
+        <p>{votes}</p>
+      </VoteElement>
       {author === loggedInAs && (
         <button onClick={() => deleteCommentFromArticle(comment_id)}>
           delete comment
