@@ -6,6 +6,7 @@ import { Router } from "@reach/router";
 import TopicPage from "./components/Topic/TopicPage";
 import ArticlePage from "./components/Article/ArticlePage";
 import LandingPage from "./components/LandingPage/LandingPage";
+import ErrorScreen from "./components/ErrorHandling/ErrorScreen";
 
 class App extends React.Component {
   state = {
@@ -27,6 +28,7 @@ class App extends React.Component {
             path="/:topicSlug/:article_id"
             loggedInAs={this.state.loggedInAs}
           />
+          <ErrorScreen default />
         </Router>
       </div>
     );

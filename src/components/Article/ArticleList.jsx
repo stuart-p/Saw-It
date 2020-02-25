@@ -3,12 +3,14 @@ import * as api from "../../functions/api";
 import ArticleCard from "./ArticleCard";
 import SortArticles from "../UI/SortArticles";
 import LoadingScreen from "../ErrorHandling/LoadingScreen";
+import ErrorScreen from "../ErrorHandling/ErrorScreen";
 
 class ArticleList extends Component {
   state = {
     articleArray: [],
     queries: {},
-    isLoading: true
+    isLoading: true,
+    err: null
   };
 
   setQueryValues = queries => {
@@ -19,12 +21,26 @@ class ArticleList extends Component {
     const fetchParams = {
       topic: this.props.topicSlug
     };
-    api.fetchArticles(fetchParams).then(articleArray => {
-      this.setState({
-        articleArray,
-        isLoading: false
+    api
+      .fetchArticles(fetchParams)
+      .then(articleArray => {
+        return new Promise((resolve, reject) => {
+          this.setState(
+            {
+              articleArray,
+              isLoading: false
+            },
+            resolve
+          );
+        });
+      })
+      .catch(({ response }) => {
+        console.log(response);
+        this.setState({
+          err: { status: response.status, msg: response.data.msg },
+          isLoading: false
+        });
       });
-    });
   };
 
   voteOnArticle = (article_id, voteChangeValue) => {
@@ -53,7 +69,7 @@ class ArticleList extends Component {
         ...this.state.queries
       };
       return new Promise(resolve => {
-        this.setState({ isLoading: true }, resolve);
+        this.setState({ isLoading: true, err: null }, resolve);
       })
         .then(() => {
           return api.fetchArticles(fetchParams);
@@ -94,19 +110,25 @@ class ArticleList extends Component {
     return (
       <section>
         {this.state.isLoading && <LoadingScreen />}
-        <SortArticles setQueryValues={this.setQueryValues} />
-        <ul className="articleList">
-          {this.state.articleArray.map(article => {
-            return (
-              <ArticleCard
-                {...article}
-                key={article.article_id}
-                loggedInAs={this.props.loggedInAs}
-                voteOnArticle={this.voteOnArticle}
-              />
-            );
-          })}
-        </ul>
+        {this.state.err ? (
+          <ErrorScreen err={this.state.err} />
+        ) : (
+          <>
+            <SortArticles setQueryValues={this.setQueryValues} />
+            <ul className="articleList">
+              {this.state.articleArray.map(article => {
+                return (
+                  <ArticleCard
+                    {...article}
+                    key={article.article_id}
+                    loggedInAs={this.props.loggedInAs}
+                    voteOnArticle={this.voteOnArticle}
+                  />
+                );
+              })}
+            </ul>
+          </>
+        )}
       </section>
     );
   }
