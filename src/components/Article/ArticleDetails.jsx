@@ -8,7 +8,6 @@ const ArticleDetails = ({
   topic,
   votes,
   comment_count,
-  voteOnArticle,
   loggedInAs
 }) => {
   return (
@@ -16,9 +15,7 @@ const ArticleDetails = ({
       <h3>{title}</h3>
       <h4>{author === loggedInAs ? "you" : author} posted</h4>
       <h5>{topic}</h5>
-      <VoteElement voteOnElement={voteOnArticle} element_id={article_id}>
-        <p>votes: {votes}</p>
-      </VoteElement>
+      <VoteElement route="articles" element_id={article_id} votes={votes} />
       <h5>{comment_count} comments</h5>
     </section>
   );

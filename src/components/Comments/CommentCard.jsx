@@ -7,16 +7,13 @@ const CommentCard = ({
   body,
   votes,
   deleteCommentFromArticle,
-  loggedInAs,
-  voteOnComment
+  loggedInAs
 }) => {
   return (
     <li className="commentCard">
       <h3>{author === loggedInAs ? "you" : author} posted</h3>
       <p>{body}</p>
-      <VoteElement voteOnElement={voteOnComment} element_id={comment_id}>
-        <p>votes: {votes}</p>
-      </VoteElement>
+      <VoteElement route="comments" element_id={comment_id} votes={votes} />
       {author === loggedInAs && (
         <button onClick={() => deleteCommentFromArticle(comment_id)}>
           delete comment

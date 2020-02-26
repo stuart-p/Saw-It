@@ -9,8 +9,7 @@ const ArticleCard = ({
   comment_count,
   article_id,
   author,
-  loggedInAs,
-  voteOnArticle
+  loggedInAs
 }) => {
   return (
     <li className="articleCard">
@@ -20,9 +19,7 @@ const ArticleCard = ({
         <h3>{topic}</h3>
         <h5>comments: {comment_count}</h5>
       </Link>
-      <VoteElement voteOnElement={voteOnArticle} element_id={article_id}>
-        <p>votes: {votes}</p>
-      </VoteElement>
+      <VoteElement route="articles" element_id={article_id} votes={votes} />
     </li>
   );
 };

@@ -13,21 +13,21 @@ class ArticlePage extends Component {
     err: null
   };
 
-  voteOnArticle = (article_id, voteChangeValue) => {
-    return new Promise(resolve => {
-      this.setState(currentState => {
-        console.log(currentState.article.votes);
-        return {
-          article: {
-            ...currentState.article,
-            votes: currentState.article.votes + voteChangeValue
-          }
-        };
-      }, resolve);
-    }).then(() => {
-      api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
-    });
-  };
+  // voteOnArticle = (article_id, voteChangeValue) => {
+  //   return new Promise(resolve => {
+  //     this.setState(currentState => {
+  //       console.log(currentState.article.votes);
+  //       return {
+  //         article: {
+  //           ...currentState.article,
+  //           votes: currentState.article.votes + voteChangeValue
+  //         }
+  //       };
+  //     }, resolve);
+  //   }).then(() => {
+  //     api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
+  //   });
+  // };
 
   componentDidMount = () => {
     api
@@ -75,7 +75,6 @@ class ArticlePage extends Component {
               {...this.state.article}
               {...this.props}
               article_id={this.props.article_id}
-              voteOnArticle={this.voteOnArticle}
             />
             <CommentsList article_id={this.props.article_id} {...this.props} />
           </>

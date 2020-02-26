@@ -47,24 +47,24 @@ class ArticleList extends Component {
       });
   };
 
-  voteOnArticle = (article_id, voteChangeValue) => {
-    return new Promise(resolve => {
-      this.setState(currentState => {
-        const updatedVotesOnArticlesArray = currentState.articleArray.map(
-          article => {
-            if (article.article_id === article_id) {
-              return { ...article, votes: article.votes + voteChangeValue };
-            } else {
-              return { ...article };
-            }
-          }
-        );
-        return { articleArray: updatedVotesOnArticlesArray };
-      }, resolve);
-    }).then(() => {
-      api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
-    });
-  };
+  // voteOnArticle = (article_id, voteChangeValue) => {
+  //   return new Promise(resolve => {
+  //     this.setState(currentState => {
+  //       const updatedVotesOnArticlesArray = currentState.articleArray.map(
+  //         article => {
+  //           if (article.article_id === article_id) {
+  //             return { ...article, votes: article.votes + voteChangeValue };
+  //           } else {
+  //             return { ...article };
+  //           }
+  //         }
+  //       );
+  //       return { articleArray: updatedVotesOnArticlesArray };
+  //     }, resolve);
+  //   }).then(() => {
+  //     api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
+  //   });
+  // };
 
   componentDidUpdate = (prevProps, prevState) => {
     if (this.props.topicSlug !== prevProps.topicSlug) {
@@ -127,7 +127,6 @@ class ArticleList extends Component {
                     {...article}
                     key={article.article_id}
                     loggedInAs={this.props.loggedInAs}
-                    voteOnArticle={this.voteOnArticle}
                   />
                 );
               })}
