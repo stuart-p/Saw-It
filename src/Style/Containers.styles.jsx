@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import theme from "./colourTheme";
 
 export const FullScreenContainer = styled.div`
@@ -29,18 +29,28 @@ export const HeaderContainer = styled.header`
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   z-index: 2;
   color: ${theme.e};
+  transition: all 1s ease;
 
   display: grid;
   grid-template-columns: 75px 1fr 1fr;
-  grid-template-rows: 50px 25px 1em 1fr;
+
+  grid-template-rows: ${props =>
+    props.showTopics
+      ? css`50px 25px 1em 1fr 500px`
+      : css`50px 25px 1em 1fr 0px`};
+  };
   grid-template-areas:
     "logo title title"
     "logo welcome welcome"
     " . welcome welcome"
-    "buttons buttons buttons";
+    "buttons buttons buttons"
+    "topics topics topics";
 
   svg {
     fill: ${theme.c};
+  }
+  ul {
+    grid-area: topics;
   }
 `;
 

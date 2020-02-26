@@ -13,7 +13,7 @@ class App extends React.Component {
   };
   componentDidMount = () => {
     this.setState({
-      loggedInAs: localStorage.getItem("loggedInAs") || "jesjelly"
+      loggedInAs: localStorage.getItem("loggedInAs") || "jessjelly"
     });
   };
 
@@ -28,7 +28,10 @@ class App extends React.Component {
             path="/:topicSlug/:article_id"
             loggedInAs={this.state.loggedInAs}
           />
-          <ErrorScreen default />
+          <ErrorScreen
+            default
+            err={{ status: "404", msg: "page not found", route: "unknown" }}
+          />
         </Router>
       </>
     );

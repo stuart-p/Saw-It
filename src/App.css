@@ -51,7 +51,7 @@ button {
 .topicList {
   display: flex;
   flex-direction: column;
-
+  /* grid-area: topics; */
   padding: 0 5px;
 }
 

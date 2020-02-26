@@ -25,7 +25,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <HeaderContainer>
+      <HeaderContainer showTopics={this.state.topicsShowing}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="75"
@@ -42,10 +42,10 @@ class Header extends React.Component {
             <Button>home</Button>
           </Link>
           <Button onClick={this.toggleTopicsShowing}>topics</Button>
-          {this.state.topicsShowing && (
-            <TopicList closeTopicsMenu={this.closeTopicsMenu} />
-          )}
         </HeaderButtonBox>
+        {this.state.topicsShowing && (
+          <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+        )}
       </HeaderContainer>
     );
   }
