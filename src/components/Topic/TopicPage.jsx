@@ -1,13 +1,14 @@
 import React from "react";
 import ArticleList from "../Article/ArticleList";
+import { PrimaryContainer } from "../../Style/Containers.styles";
 
 const TopicPage = props => {
   return (
-    <div>
+    <PrimaryContainer>
       <h2>{props.topicSlug}</h2>
 
       <ArticleList {...props} />
-    </div>
+    </PrimaryContainer>
   );
 };
 

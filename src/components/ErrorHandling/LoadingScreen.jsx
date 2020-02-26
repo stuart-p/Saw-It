@@ -1,10 +1,11 @@
 import React from "react";
+import { FullScreenContainer } from "../../Style/Containers.styles";
 
 const LoadingScreen = () => {
   return (
-    <div className="loadingScreen">
+    <FullScreenContainer className="loadingScreen">
       <h1>LOADING...</h1>
-    </div>
+    </FullScreenContainer>
   );
 };
 

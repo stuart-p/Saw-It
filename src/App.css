@@ -2,6 +2,23 @@
 
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
 }
 button {
   background-color: cornflowerblue;
@@ -67,7 +84,7 @@ button {
 
 /* ======== */
 
-.loadingScreen {
+/* .loadingScreen {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -77,5 +94,5 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 /*temp styling ends ===================================*/

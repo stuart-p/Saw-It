@@ -7,6 +7,7 @@ import TopicPage from "./components/Topic/TopicPage";
 import ArticlePage from "./components/Article/ArticlePage";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ErrorScreen from "./components/ErrorHandling/ErrorScreen";
+import styled from "styled-components";
 
 class App extends React.Component {
   state = {
@@ -17,11 +18,12 @@ class App extends React.Component {
       loggedInAs: localStorage.getItem("loggedInAs") || "jesjelly"
     });
   };
+
   render() {
     return (
-      <div className="App">
+      <>
         <Header loggedInAs={this.state.loggedInAs} />
-        <Router>
+        <Router className="main">
           <LandingPage path="/" loggedInAs={this.state.loggedInAs} />
           <TopicPage path="/:topicSlug" loggedInAs={this.state.loggedInAs} />
           <ArticlePage
@@ -30,7 +32,7 @@ class App extends React.Component {
           />
           <ErrorScreen default />
         </Router>
-      </div>
+      </>
     );
   }
 }

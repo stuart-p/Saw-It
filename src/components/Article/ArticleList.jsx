@@ -108,7 +108,7 @@ class ArticleList extends Component {
   render() {
     // console.log(this.state);
     return (
-      <section>
+      <>
         {this.state.isLoading && <LoadingScreen />}
         {this.state.err ? (
           <ErrorScreen err={this.state.err} />
@@ -129,7 +129,7 @@ class ArticleList extends Component {
             </ul>
           </>
         )}
-      </section>
+      </>
     );
   }
 }
