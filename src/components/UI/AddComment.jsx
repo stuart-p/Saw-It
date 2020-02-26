@@ -28,6 +28,7 @@ class AddComment extends Component {
               size={60}
               onChange={this.onChange}
               value={this.state.commentInput}
+              required
             ></input>
             <button>Post</button>
           </label>
