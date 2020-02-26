@@ -24,7 +24,7 @@ class ArticleList extends Component {
     api
       .fetchArticles(fetchParams)
       .then(articleArray => {
-        return new Promise((resolve, reject) => {
+        return new Promise(resolve => {
           this.setState(
             {
               articleArray,
@@ -37,7 +37,11 @@ class ArticleList extends Component {
       .catch(({ response }) => {
         console.log(response);
         this.setState({
-          err: { status: response.status, msg: response.data.msg },
+          err: {
+            status: response.status,
+            msg: response.data.msg,
+            route: this.props.topicSlug
+          },
           isLoading: false
         });
       });
@@ -114,6 +118,7 @@ class ArticleList extends Component {
           <ErrorScreen err={this.state.err} />
         ) : (
           <>
+            <h2>{this.props.topicSlug}</h2>
             <SortArticles setQueryValues={this.setQueryValues} />
             <ul className="articleList">
               {this.state.articleArray.map(article => {

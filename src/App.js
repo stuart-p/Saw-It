@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import ArticleList from "./components/Article/ArticleList";
 import { Router } from "@reach/router";
 import TopicPage from "./components/Topic/TopicPage";
 import ArticlePage from "./components/Article/ArticlePage";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ErrorScreen from "./components/ErrorHandling/ErrorScreen";
-import styled from "styled-components";
 
 class App extends React.Component {
   state = {

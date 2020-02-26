@@ -5,7 +5,8 @@ import CommentCard from "./CommentCard";
 
 class CommentsList extends Component {
   state = {
-    commentsArray: []
+    commentsArray: [],
+    err: null
   };
 
   addCommentToArticle = commentText => {
@@ -75,9 +76,16 @@ class CommentsList extends Component {
   };
 
   componentDidMount = () => {
-    api.fetchCommentsOnArticle(this.props.article_id).then(commentsArray => {
-      this.setState({ commentsArray });
-    });
+    api
+      .fetchCommentsOnArticle(this.props.article_id)
+      .then(commentsArray => {
+        return new Promise(resolve => {
+          this.setState({ commentsArray, err: null }, resolve);
+        });
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      });
   };
   render() {
     return (
