@@ -64,3 +64,21 @@ export const HeaderButtonBox = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
+export const ArticleCardContainer = styled.li`
+  list-style-type: none;
+  background-color: ${theme.c};
+  margin: 5px 0;
+  padding: 3px 20px;
+  border: solid ${theme.e} 2px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-template-rows: 1.5em 1.5em 1fr 4em;
+  grid-template-areas:
+    "logo topicName"
+    "logo postDetails"
+    "_ articleSummary"
+    "_ engagementSummary";
+`;
