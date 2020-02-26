@@ -4,6 +4,8 @@ import ArticleCard from "./ArticleCard";
 import SortArticles from "../UI/SortArticles";
 import LoadingScreen from "../ErrorHandling/LoadingScreen";
 import ErrorScreen from "../ErrorHandling/ErrorScreen";
+import { ArticleListContainer } from "../../Style/Containers.styles";
+import NavigatePages from "../UI/NavigatePages";
 
 class ArticleList extends Component {
   state = {
@@ -46,25 +48,6 @@ class ArticleList extends Component {
         });
       });
   };
-
-  // voteOnArticle = (article_id, voteChangeValue) => {
-  //   return new Promise(resolve => {
-  //     this.setState(currentState => {
-  //       const updatedVotesOnArticlesArray = currentState.articleArray.map(
-  //         article => {
-  //           if (article.article_id === article_id) {
-  //             return { ...article, votes: article.votes + voteChangeValue };
-  //           } else {
-  //             return { ...article };
-  //           }
-  //         }
-  //       );
-  //       return { articleArray: updatedVotesOnArticlesArray };
-  //     }, resolve);
-  //   }).then(() => {
-  //     api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
-  //   });
-  // };
 
   componentDidUpdate = (prevProps, prevState) => {
     if (this.props.topicSlug !== prevProps.topicSlug) {
@@ -120,7 +103,7 @@ class ArticleList extends Component {
           <>
             <h2>{this.props.topicSlug}</h2>
             <SortArticles setQueryValues={this.setQueryValues} />
-            <ul className="articleList">
+            <ArticleListContainer>
               {this.state.articleArray.map(article => {
                 return (
                   <ArticleCard
@@ -130,7 +113,8 @@ class ArticleList extends Component {
                   />
                 );
               })}
-            </ul>
+            </ArticleListContainer>
+            <NavigatePages />
           </>
         )}
       </>

@@ -65,11 +65,22 @@ export const HeaderButtonBox = styled.div`
   justify-content: space-around;
 `;
 
+export const ArticleListContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 5px;
+  max-width: 800px;
+  align-items: center;
+`;
+
 export const ArticleCardContainer = styled.li`
+  position: relative;
   list-style-type: none;
   background-color: ${theme.c};
   margin: 5px 0;
   padding: 3px 20px;
+  width: 80%;
   border: solid ${theme.e} 2px;
   border-radius: 4px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
@@ -81,4 +92,13 @@ export const ArticleCardContainer = styled.li`
     "logo postDetails"
     "_ articleSummary"
     "_ engagementSummary";
+`;
+
+export const Footer = styled.section`
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 4em;
+  background-color: ${theme.a};
+  display: flex;
 `;

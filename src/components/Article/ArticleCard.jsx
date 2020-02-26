@@ -4,6 +4,7 @@ import VoteElement from "../UI/VoteElement";
 import { ArticleCardContainer } from "../../Style/Containers.styles";
 import { compareTimeToNow } from "../../functions/functions";
 import { SubHeading, CardHeading, StyledLink } from "../../Style/Texts.styles";
+import { ArticleCardStripe } from "../../Style/UI.styles";
 
 const ArticleCard = ({
   title,
@@ -33,7 +34,7 @@ const ArticleCard = ({
         votes={votes}
         articleCard
       />
-      {/* <VoteElement route="articles" element_id={article_id} votes={votes} /> */}
+      <ArticleCardStripe />
     </ArticleCardContainer>
   );
 };

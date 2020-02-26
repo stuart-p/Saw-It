@@ -67,3 +67,13 @@ export const StyledVoteElement = styled.div`
     text-shadow: 2px 2px ${theme.d};
   }
 `;
+
+export const ArticleCardStripe = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: ${theme.e};
+  clip-path: polygon(0 0, 10% 0, 10% 100%, 0 100%);
+`;
