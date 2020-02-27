@@ -1,7 +1,8 @@
 /* temp styling to assist initial design =============== */
 
 body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  font-family: "Montserrat", sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;

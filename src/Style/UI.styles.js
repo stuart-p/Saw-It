@@ -38,6 +38,9 @@ export const Button = styled.button`
  ${props =>
    props.wink &&
    css`
+     position: absolute;
+     top: 17px;
+     left: 5px;
      grid-row: 1/2;
      grid-column: 2/3;
      z-index: 3;
@@ -49,18 +52,10 @@ export const Button = styled.button`
      border: solid 3px ${theme.b};
      border-radius: 30px;
      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-   `}
- ${props =>
-   props.eyeroll &&
-   css`
-     grid-row: 2/3;
-     grid-column: 3/4;
-     z-index: 3;
-     color: ${theme.e};
-     background-color: ${theme.b};
-     border: solid 3px ${theme.e};
-     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
-       1px 1px 3px rgba(0, 0, 0, 0.3);
+     &:active {
+       position: absolute;
+       top: 21px;
+     }
    `}
  ${props =>
    props.deleteComment &&
@@ -116,6 +111,30 @@ export const StyledVoteElement = styled.div`
     z-index: 5;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
+
+  svg.clapGrowAnimation {
+    animation: sampleanimation 0.2s forwards;
+  }
+  @keyframes sampleanimation {
+    0% {
+      width: 44px;
+      height: 44px;
+      padding: 7px;
+    }
+
+    60% {
+      transform: scale(0.8);
+    }
+
+    85% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
   h6 {
     grid-column: 1/2;
     grid-row: 1/2;

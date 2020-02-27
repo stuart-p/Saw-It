@@ -64,6 +64,7 @@ ${props =>
    css`
      font-size: 18px;
      margin: auto 15px;
+     color: ${theme.c};
    `}
 
 `;

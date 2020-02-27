@@ -103,12 +103,41 @@ export const ArticleCardContainer = styled.li`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 30px 1fr;
-  grid-template-rows: 1.5em 1.5em 1fr 5em;
+  grid-template-rows: 1.5em 1.5em 1fr 6em;
   grid-template-areas:
     "logo topicName"
     "logo postDetails"
     "_ articleSummary"
     "_ engagementSummary";
+`;
+
+export const ArticleSortContainer = styled.section`
+  margin: 10px auto 10px auto;
+  padding: 10px 20px;
+  width: 80%;
+  max-width: 320px;
+  background-color: ${theme.c};
+  border: solid 3px ${theme.e};
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: 1fr;
+  }
+  button {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    padding: 15px 0;
+  }
+  label {
+    font-size: 16px;
+  }
+  select {
+    border: solid ${theme.e} 1px;
+    font-size: 16px;
+  }
 `;
 
 export const ArticleDetailContainer = styled.section`

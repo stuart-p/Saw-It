@@ -15,7 +15,7 @@ const NavigatePages = props => {
     <Footer className="footer">
       <PaginateContainer className="prev-next-page">
         <Button leftArrow onClick={() => onNavClick(-1)}>
-          <img src="https://img.icons8.com/metro/26/000000/down--v1.png" />
+          <img src="https://img.icons8.com/metro/26/ffffff/down--v1.png" />
         </Button>
         <SubHeading pageNumber>page {props.page}</SubHeading>
         <Button
@@ -24,7 +24,7 @@ const NavigatePages = props => {
             onNavClick(1);
           }}
         >
-          <img src="https://img.icons8.com/metro/26/000000/down--v1.png" />
+          <img src="https://img.icons8.com/metro/26/ffffff/down--v1.png" />
         </Button>
       </PaginateContainer>
       {props.children}

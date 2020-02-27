@@ -6,6 +6,7 @@ import LoadingScreen from "../ErrorHandling/LoadingScreen";
 import ErrorScreen from "../ErrorHandling/ErrorScreen";
 import { ArticleListContainer } from "../../Style/Containers.styles";
 import NavigatePages from "../UI/NavigatePages";
+import { PageTitle } from "../../Style/Texts.styles";
 
 class ArticleList extends Component {
   state = {
@@ -105,7 +106,7 @@ class ArticleList extends Component {
           <ErrorScreen err={this.state.err} />
         ) : (
           <>
-            <h2>{this.props.topicSlug}</h2>
+            <PageTitle>{this.props.topicSlug}</PageTitle>
             <SortArticles setQueryValues={this.setQueryValues} />
             <ArticleListContainer>
               {this.state.articleArray.map(article => {

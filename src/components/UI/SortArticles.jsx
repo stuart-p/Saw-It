@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { ArticleSortContainer } from "../../Style/Containers.styles";
+import { Button } from "../../Style/UI.styles";
 
 class SortArticles extends Component {
   state = {
@@ -22,10 +24,10 @@ class SortArticles extends Component {
   };
   render() {
     return (
-      <div>
+      <ArticleSortContainer>
         <form onSubmit={this.onSubmit}>
           <label>
-            sort by:
+            sort articles by:
             <select
               name="sort_by"
               onChange={this.onChange}
@@ -38,7 +40,7 @@ class SortArticles extends Component {
             </select>
           </label>
           <label>
-            order
+            order articles:
             <select
               name="order"
               onChange={this.onChange}
@@ -49,9 +51,9 @@ class SortArticles extends Component {
               <option value={"desc"}>descending</option>
             </select>
           </label>
-          <button>go</button>
+          <Button>sort</Button>
         </form>
-      </div>
+      </ArticleSortContainer>
     );
   }
 }
