@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import theme from "./colourTheme";
 
 export const FullScreenContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -85,7 +85,7 @@ export const HeaderButtonBox = styled.div`
 export const ArticleListContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 0 auto 200px auto;
+  margin: 0 auto 70px auto;
   padding: 0 5px;
   max-width: 800px;
   align-items: center;
@@ -140,7 +140,7 @@ export const ArticleDetailContainer = styled.section`
 export const CommentsListContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 0 auto 200px auto;
+  margin: 0 auto 70px auto;
   padding: 0 5px;
   max-width: 800px;
   align-items: center;

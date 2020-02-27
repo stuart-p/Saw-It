@@ -3,11 +3,23 @@ import * as api from "../../functions/api";
 import AddComment from "../UI/AddComment";
 import CommentCard from "./CommentCard";
 import { CommentsListContainer } from "../../Style/Containers.styles";
+import NavigatePages from "../UI/NavigatePages";
+import LoadingScreen from "../ErrorHandling/LoadingScreen";
 
 class CommentsList extends Component {
   state = {
     commentsArray: [],
-    err: null
+    queries: {
+      p: 1
+    },
+    err: null,
+    isLoading: false
+  };
+
+  setQueryValues = queries => {
+    this.setState(currentState => {
+      return { queries: { ...currentState.queries, ...queries } };
+    });
   };
 
   addCommentToArticle = commentText => {
@@ -57,28 +69,9 @@ class CommentsList extends Component {
     });
   };
 
-  // voteOnComment = (comment_id, voteChangeValue) => {
-  //   return new Promise(resolve => {
-  //     this.setState(currentState => {
-  //       const updatedCommentsOnVotesArray = currentState.commentsArray.map(
-  //         comment => {
-  //           if (comment.comment_id === comment_id) {
-  //             return { ...comment, votes: comment.votes + voteChangeValue };
-  //           } else {
-  //             return { ...comment };
-  //           }
-  //         }
-  //       );
-  //       return { commentsArray: updatedCommentsOnVotesArray };
-  //     }, resolve);
-  //   }).then(() => {
-  //     api.modifyVotesOnElement(`comments/${comment_id}`, voteChangeValue);
-  //   });
-  // };
-
   componentDidMount = () => {
     api
-      .fetchCommentsOnArticle(this.props.article_id)
+      .fetchCommentsOnArticle(this.props.article_id, this.state.queries)
       .then(commentsArray => {
         return new Promise(resolve => {
           this.setState({ commentsArray, err: null }, resolve);
@@ -88,9 +81,39 @@ class CommentsList extends Component {
         console.log(response);
       });
   };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (
+      !Object.values(this.state.queries).every((query, iteratee) => {
+        return query === Object.values(prevState.queries)[iteratee];
+      })
+    ) {
+      return new Promise(resolve => {
+        this.setState({ isLoading: true, err: null }, resolve);
+      })
+        .then(() => {
+          return api.fetchCommentsOnArticle(
+            this.props.article_id,
+            this.state.queries
+          );
+        })
+        .then(commentsArray => {
+          return new Promise(resolve => {
+            this.setState(
+              { commentsArray, err: null, isLoading: false },
+              resolve
+            );
+          });
+        })
+        .catch(({ response }) => {
+          console.log(response);
+        });
+    }
+  };
   render() {
     return (
-      <section>
+      <>
+        {this.state.isLoading && <LoadingScreen />}
         <CommentsListContainer>
           {this.state.commentsArray.map(comment => {
             return (
@@ -103,8 +126,12 @@ class CommentsList extends Component {
             );
           })}
         </CommentsListContainer>
+        <NavigatePages
+          page={this.state.queries.p}
+          setQueryValues={this.setQueryValues}
+        />
         <AddComment addCommentToArticle={this.addCommentToArticle} />
-      </section>
+      </>
     );
   }
 }

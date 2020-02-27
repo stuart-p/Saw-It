@@ -122,56 +122,6 @@ export const StyledVoteElement = styled.div`
   }
 `;
 
-// export const StyledVoteElement = styled.div`
-//   display: flex;
-//   flex-direction: row;
-
-//   ${props =>
-//     props.articleCard &&
-//     css`
-//       font-size: 14px;
-//       grid-area: engagementSummary;
-//     `}
-
-//   Button {
-//     padding: 0;
-//     width: 3.5em;
-//     border-radius: 4px;
-//     text-align: center;
-//     background-color: ${theme.a};
-//     border: solid 1px ${theme.a};
-//     color: ${theme.e};
-//     font-size: 16px;
-//     font-weight: bolder;
-//   }
-//   div {
-//     position: relative;
-//     display: grid;
-//     grid-template-rows: 1fr;
-//     grid-template-columns: 1fr;
-//     margin: 0 25px;
-//   }
-//   img {
-//     grid-row: 1/2;
-//     grid-column: 1/2;
-//     background-color: ${theme.b};
-//     border-radius: 50%;
-//     padding: 3px;
-//     border: solid 3px ${theme.b};
-//   }
-//   h6 {
-//     grid-column: 1/2;
-//     grid-row: 1/2;
-//     padding: 0;
-//     font-size: 28px;
-//     margin: 0;
-//     color: ${theme.a};
-//     text-align: center;
-//     align-self: center;
-//     text-shadow: 2px 2px ${theme.c};
-//   }
-// `;
-
 export const ArticleCardStripe = styled.div`
   position: absolute;
   top: 0;
@@ -179,7 +129,7 @@ export const ArticleCardStripe = styled.div`
   left: 0;
   right: 0;
   background-color: ${theme.e};
-  clip-path: polygon(0 0, 10% 0, 10% 100%, 0 100%);
+  clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
 `;
 
 export const CommentCardStripe = styled.div`
@@ -189,7 +139,7 @@ export const CommentCardStripe = styled.div`
   left: 0;
   right: 0;
   background-color: ${theme.a};
-  clip-path: polygon(0 0, 10% 0, 10% 100%, 0 100%);
+  clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
 `;
 
 export const VoteElementBackgroundStripe = styled.div`

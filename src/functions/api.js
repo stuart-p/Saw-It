@@ -28,10 +28,17 @@ export const fetchTopics = () => {
     });
 };
 
-export const fetchCommentsOnArticle = article_id => {
-  return axios.get(baseURL + `articles/${article_id}/comments`).then(res => {
-    return res.data.comments;
+export const fetchCommentsOnArticle = (article_id, queries) => {
+  Object.keys(queries).forEach(query => {
+    if (queries[query] === "") queries[query] = null;
   });
+  return axios
+    .get(baseURL + `articles/${article_id}/comments`, {
+      params: { ...queries }
+    })
+    .then(res => {
+      return res.data.comments;
+    });
 };
 
 export const postCommentToArticle = (article_id, username, body) => {
