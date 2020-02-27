@@ -55,6 +55,20 @@ export const Button = styled.button`
                   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
                     1px 1px 3px rgba(0, 0, 0, 0.3);
                 `}
+                ${props =>
+                  props.deleteComment &&
+                  css`
+                    grid-area: deleteButton;
+                    background-color: ${theme.a};
+                    padding: 3px 0 0 0;
+                    margin: 0 0 0 auto;
+                    width: 40px;
+                    height: 40px;
+                    border: solid 2px ${theme.e};
+                    border-radius: 2px;
+                    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3),
+                      1px 1px 2px rgba(0, 0, 0, 0.3);
+                  `}
 `;
 
 export const StyledVoteElement = styled.div`
@@ -165,6 +179,16 @@ export const ArticleCardStripe = styled.div`
   left: 0;
   right: 0;
   background-color: ${theme.e};
+  clip-path: polygon(0 0, 10% 0, 10% 100%, 0 100%);
+`;
+
+export const CommentCardStripe = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: ${theme.a};
   clip-path: polygon(0 0, 10% 0, 10% 100%, 0 100%);
 `;
 

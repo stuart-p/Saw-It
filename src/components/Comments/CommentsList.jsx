@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../functions/api";
 import AddComment from "../UI/AddComment";
 import CommentCard from "./CommentCard";
+import { CommentsListContainer } from "../../Style/Containers.styles";
 
 class CommentsList extends Component {
   state = {
@@ -90,7 +91,7 @@ class CommentsList extends Component {
   render() {
     return (
       <section>
-        <ul>
+        <CommentsListContainer>
           {this.state.commentsArray.map(comment => {
             return (
               <CommentCard
@@ -101,7 +102,7 @@ class CommentsList extends Component {
               />
             );
           })}
-        </ul>
+        </CommentsListContainer>
         <AddComment addCommentToArticle={this.addCommentToArticle} />
       </section>
     );

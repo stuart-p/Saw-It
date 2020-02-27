@@ -8,9 +8,26 @@ export const FullScreenContainer = styled.div`
   left: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: ${theme.c};
+  justify-content: flex-start;
+  background-color: ${theme.b};
+  z-index: 20;
+
+  div {
+    width: 100%;
+    background-color: ${theme.a};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    flex-grow: 1;
+    font-size: 36px;
+    margin: auto auto;
+    padding-top: 50%;
+  }
 `;
 
 export const PrimaryContainer = styled.section`
@@ -118,6 +135,34 @@ export const ArticleDetailContainer = styled.section`
   margin: 10px auto 10px auto;
   max-width: 800px;
   align-items: center;
+`;
+
+export const CommentsListContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 200px auto;
+  padding: 0 5px;
+  max-width: 800px;
+  align-items: center;
+`;
+
+export const CommentCardContainer = styled.li`
+  position: relative;
+  list-style-type: none;
+  background-color: ${theme.c};
+  margin: 5px 0;
+  padding: 3px 20px;
+  width: 80%;
+  border: solid ${theme.e} 2px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 30px 1fr 50px;
+  grid-template-rows: 2.5em 1fr 5em;
+  grid-template-areas:
+    "logo postDetails deleteButton"
+    "_ commentBody commentBody"
+    "_ engagementSummary engagementSummary";
 `;
 
 export const Footer = styled.section`

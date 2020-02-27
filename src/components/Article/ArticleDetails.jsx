@@ -3,6 +3,7 @@ import VoteElement from "../UI/VoteElement";
 import { ArticleDetailContainer } from "../../Style/Containers.styles";
 import { SubHeading, CardHeading, StyledPara } from "../../Style/Texts.styles";
 import { compareTimeToNow } from "../../functions/functions";
+import { ArticleCardStripe } from "../../Style/UI.styles";
 
 const ArticleDetails = ({
   article_id,
@@ -30,6 +31,7 @@ const ArticleDetails = ({
         votes={votes || 0}
       />
       <SubHeading articleCommentCount>{comment_count} comments</SubHeading>
+      <ArticleCardStripe />
     </ArticleDetailContainer>
   );
 };

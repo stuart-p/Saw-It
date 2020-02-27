@@ -52,6 +52,12 @@ export const SubHeading = styled.h3`
           grid-area: commentCount;
           text-align: right;
         `}
+            ${props =>
+              props.commentPostDetails &&
+              css`
+                font-size: 18px;
+                grid-area: postDetails;
+              `}
 `;
 
 export const StyledPara = styled.p`
@@ -59,5 +65,10 @@ export const StyledPara = styled.p`
     props.articleBody &&
     css`
       grid-area: articleBody;
+    `}
+  ${props =>
+    props.commentBody &&
+    css`
+      grid-area: commentBody;
     `}
 `;
