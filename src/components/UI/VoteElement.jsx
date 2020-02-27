@@ -5,7 +5,7 @@ import {
   Button,
   VoteElementBackgroundStripe
 } from "../../Style/UI.styles";
-import { ReactComponent as Eye } from "../../images/eyeIcon.svg";
+import { ReactComponent as Clap } from "../../images/clapping.svg";
 class VoteElement extends React.Component {
   state = {
     voteModification: 0
@@ -24,27 +24,27 @@ class VoteElement extends React.Component {
   render() {
     return (
       <StyledVoteElement articleCard>
-        <Button
-          onClick={() =>
-            this.onClick(this.props.route, this.props.element_id, 1)
-          }
-          wink
-        >
-          Wink!
-        </Button>
         <h6>{this.props.votes + this.state.voteModification}</h6>
-        <VoteElementBackgroundStripe />
         <div>
-          <Eye height={40} width={40} />
+          <VoteElementBackgroundStripe />
+          <Button
+            onClick={() =>
+              this.onClick(this.props.route, this.props.element_id, 1)
+            }
+            wink
+          >
+            Clap!
+          </Button>
+          <Clap height={44} width={44} />
         </div>
-        <Button
+        {/* <Button
           onClick={() =>
             this.onClick(this.props.route, this.props.element_id, -1)
           }
           eyeroll
         >
           Eyeroll
-        </Button>
+        </Button> */}
       </StyledVoteElement>
     );
   }

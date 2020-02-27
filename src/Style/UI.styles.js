@@ -38,14 +38,17 @@ export const Button = styled.button`
  ${props =>
    props.wink &&
    css`
-     grid-row: 2/3;
-     grid-column: 1/2;
+     grid-row: 1/2;
+     grid-column: 2/3;
      z-index: 3;
+     width: min-content;
+     padding: 10px;
+     margin: auto 50px 2px 0;
      color: ${theme.e};
-     background-color: ${theme.b};
-     border: solid 3px ${theme.e};
-     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
-       1px 1px 3px rgba(0, 0, 0, 0.3);
+     background-color: ${theme.d};
+     border: solid 3px ${theme.b};
+     border-radius: 30px;
+     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
    `}
  ${props =>
    props.eyeroll &&
@@ -76,9 +79,10 @@ export const Button = styled.button`
 `;
 
 export const StyledVoteElement = styled.div`
+  position: relative;
   display: grid;
-  grid-template-rows: 1.5em 3em;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.5em 4em;
+  grid-template-columns: 1fr;
 
   ${props =>
     props.articleCard &&
@@ -88,18 +92,19 @@ export const StyledVoteElement = styled.div`
     `}
 
   div {
+    position: relative;
     grid-row: 2/3;
-    grid-column: 1/4;
-    width: 90%;
+    grid-column: 1/2;
+
     justify-self: center;
     border-radius: 50px;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 200px auto;
   }
   svg {
     grid-row: 1/2;
-    grid-column: 1/2;
+    grid-column: 2/3;
     background-color: ${theme.d};
     border-radius: 50%;
     padding: 7px;
@@ -109,13 +114,14 @@ export const StyledVoteElement = styled.div`
     align-self: center;
     fill: ${theme.e};
     z-index: 5;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
   h6 {
-    grid-column: 2/3;
+    grid-column: 1/2;
     grid-row: 1/2;
     background-color: ${theme.b};
     width: min-content;
-    padding: 3px 10px 30px 10px;
+    padding: 4px 13px 30px 13px;
     font-size: 16px;
     border-radius: 50px;
     margin: 0 auto;
@@ -146,12 +152,16 @@ export const CommentCardStripe = styled.div`
   clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
 `;
 
-export const VoteElementBackgroundStripe = styled.div`
+export const VoteElementBackgroundStripe = styled.aside`
+  position: absolute;
   background-color: ${theme.b};
-  width: 100%;
-  height: 60%;
-  grid-row: 2/3;
-  grid-column: 1/4;
+  top: 17px;
+  left: 5px;
+  width: 110px;
+  height: 45px;
+  border-radius: 50px;
+  grid-row: 1/2;
+  grid-column: 2/3;
   z-index: 0;
   margin: auto 0;
 `;

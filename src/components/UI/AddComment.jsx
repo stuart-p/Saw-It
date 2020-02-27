@@ -26,17 +26,15 @@ class AddComment extends Component {
     return (
       <AddElementContainer>
         <AddElementForm onSubmit={this.onSubmit}>
-          <label>
-            Add a comment
-            <input
-              type="text"
-              size={25}
-              onChange={this.onChange}
-              value={this.state.commentInput}
-              required
-            ></input>
-            <Button>Post</Button>
-          </label>
+          <textarea
+            aria-label="Add a comment"
+            // type="textarea"
+            placeholder="Add a comment..."
+            onChange={this.onChange}
+            value={this.state.commentInput}
+            required
+          ></textarea>
+          <Button>Post</Button>
         </AddElementForm>
       </AddElementContainer>
     );

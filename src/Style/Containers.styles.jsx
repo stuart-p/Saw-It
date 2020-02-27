@@ -85,7 +85,7 @@ export const HeaderButtonBox = styled.div`
 export const ArticleListContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 0 auto 70px auto;
+  margin: 0 auto 120px auto;
   padding: 0 5px;
   max-width: 800px;
   align-items: center;
@@ -140,7 +140,7 @@ export const ArticleDetailContainer = styled.section`
 export const CommentsListContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 0 auto 70px auto;
+  margin: 0 auto 120px auto;
   padding: 0 5px;
   max-width: 800px;
   align-items: center;
@@ -158,7 +158,7 @@ export const CommentCardContainer = styled.li`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 30px 1fr 50px;
-  grid-template-rows: 2.5em 1fr 5em;
+  grid-template-rows: 2.5em 1fr 5.5em;
   grid-template-areas:
     "logo postDetails deleteButton"
     "_ commentBody commentBody"
@@ -169,8 +169,10 @@ export const Footer = styled.section`
   position: fixed;
   width: 100vw;
   bottom: 0;
-  height: 4.5em;
-  background-color: ${theme.a};
+  ${"" /* height: 4.5em; */}
+  background-color: ${theme.e};
+  border-top: solid 2px ${theme.e};
+  padding-top: 3px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-start;
@@ -190,9 +192,23 @@ export const PaginateContainer = styled.div`
 `;
 
 export const AddElementContainer = styled.div`
+  width: 100%;
+  max-width: 750px;
   display: flex;
+  justify-content: center;
 `;
 
 export const AddElementForm = styled.form`
   display: flex;
+  width: 80%;
+  margin: 0 0 5px 0px;
+
+  textarea {
+    flex-grow: 1;
+  }
+
+  button {
+    margin: 0;
+    border-radius: 0px;
+  }
 `;
