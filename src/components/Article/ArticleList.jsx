@@ -10,13 +10,17 @@ import NavigatePages from "../UI/NavigatePages";
 class ArticleList extends Component {
   state = {
     articleArray: [],
-    queries: {},
+    queries: {
+      p: 1
+    },
     isLoading: true,
     err: null
   };
 
   setQueryValues = queries => {
-    this.setState({ queries: { ...queries } });
+    this.setState(currentState => {
+      return { queries: { ...currentState.queries, ...queries } };
+    });
   };
 
   componentDidMount = () => {
@@ -114,7 +118,10 @@ class ArticleList extends Component {
                 );
               })}
             </ArticleListContainer>
-            <NavigatePages />
+            <NavigatePages
+              page={this.state.queries.p}
+              setQueryValues={this.setQueryValues}
+            />
           </>
         )}
       </>

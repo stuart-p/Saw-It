@@ -68,7 +68,7 @@ export const HeaderButtonBox = styled.div`
 export const ArticleListContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 200px auto;
   padding: 0 5px;
   max-width: 800px;
   align-items: center;
@@ -86,12 +86,38 @@ export const ArticleCardContainer = styled.li`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 30px 1fr;
-  grid-template-rows: 1.5em 1.5em 1fr 4em;
+  grid-template-rows: 1.5em 1.5em 1fr 5em;
   grid-template-areas:
     "logo topicName"
     "logo postDetails"
     "_ articleSummary"
     "_ engagementSummary";
+`;
+
+export const ArticleDetailContainer = styled.section`
+  position: relative;
+  list-style-type: none;
+  background-color: ${theme.c};
+  margin: 5px 0;
+  padding: 3px 20px;
+  width: 80%;
+  border: solid ${theme.e} 2px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-template-rows: 1.5em 1.5em 1fr auto 1.5em 6em;
+  grid-template-areas:
+    "logo topicName"
+    "logo postDetails"
+    "_ articleSummary"
+    "_ articleBody"
+    "_ commentCount"
+    "_ engagementSummary";
+
+  margin: 10px auto 10px auto;
+  max-width: 800px;
+  align-items: center;
 `;
 
 export const Footer = styled.section`
@@ -101,4 +127,11 @@ export const Footer = styled.section`
   height: 4em;
   background-color: ${theme.a};
   display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  h5 {
+    font-size: 16px;
+    margin: 0 5px;
+  }
 `;

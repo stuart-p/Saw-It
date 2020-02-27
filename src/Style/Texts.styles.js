@@ -39,10 +39,25 @@ export const SubHeading = styled.h3`
     css`
       grid-area: topicName;
     `}
+
     ${props =>
       props.articlePostDetails &&
       css`
         font-size: 14px;
         grid-area: postDetails;
       `}
+      ${props =>
+        props.articleCommentCount &&
+        css`
+          grid-area: commentCount;
+          text-align: right;
+        `}
+`;
+
+export const StyledPara = styled.p`
+  ${props =>
+    props.articleBody &&
+    css`
+      grid-area: articleBody;
+    `}
 `;

@@ -63,7 +63,6 @@ class ArticlePage extends Component {
     }
   };
   render() {
-    console.log(this.state);
     return (
       <PrimaryContainer>
         {this.state.isLoading && <LoadingScreen />}
