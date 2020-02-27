@@ -127,10 +127,13 @@ class CommentsList extends Component {
           })}
         </CommentsListContainer>
         <NavigatePages
+          className="NavigatePages"
           page={this.state.queries.p}
           setQueryValues={this.setQueryValues}
-        />
-        <AddComment addCommentToArticle={this.addCommentToArticle} />
+        >
+          <AddComment addCommentToArticle={this.addCommentToArticle} />
+        </NavigatePages>
+        {/* <AddComment addCommentToArticle={this.addCommentToArticle} /> */}
       </>
     );
   }

@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import {
+  AddElementContainer,
+  AddElementForm
+} from "../../Style/Containers.styles";
+import { Button } from "../../Style/UI.styles";
 
 class AddComment extends Component {
   state = {
@@ -19,21 +24,21 @@ class AddComment extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
+      <AddElementContainer>
+        <AddElementForm onSubmit={this.onSubmit}>
           <label>
             Add a comment
             <input
               type="text"
-              size={60}
+              size={25}
               onChange={this.onChange}
               value={this.state.commentInput}
               required
             ></input>
-            <button>Post</button>
+            <Button>Post</Button>
           </label>
-        </form>
-      </div>
+        </AddElementForm>
+      </AddElementContainer>
     );
   }
 }

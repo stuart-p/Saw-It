@@ -64,18 +64,23 @@ class ArticlePage extends Component {
   };
   render() {
     return (
-      <PrimaryContainer>
+      <PrimaryContainer className="primary-container">
         {this.state.isLoading && <LoadingScreen />}
         {this.state.err ? (
           <ErrorScreen err={this.state.err} />
         ) : (
           <>
             <ArticleDetails
+              className="article-details"
               {...this.state.article}
               {...this.props}
               article_id={this.props.article_id}
             />
-            <CommentsList article_id={this.props.article_id} {...this.props} />
+            <CommentsList
+              className="commentsList"
+              article_id={this.props.article_id}
+              {...this.props}
+            />
           </>
         )}
       </PrimaryContainer>

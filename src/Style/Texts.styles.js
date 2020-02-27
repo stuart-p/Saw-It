@@ -40,24 +40,32 @@ export const SubHeading = styled.h3`
       grid-area: topicName;
     `}
 
-    ${props =>
-      props.articlePostDetails &&
-      css`
-        font-size: 14px;
-        grid-area: postDetails;
-      `}
-      ${props =>
-        props.articleCommentCount &&
-        css`
-          grid-area: commentCount;
-          text-align: right;
-        `}
-            ${props =>
-              props.commentPostDetails &&
-              css`
-                font-size: 18px;
-                grid-area: postDetails;
-              `}
+${props =>
+  props.articlePostDetails &&
+  css`
+    font-size: 14px;
+    grid-area: postDetails;
+  `}
+${props =>
+  props.articleCommentCount &&
+  css`
+    grid-area: commentCount;
+    text-align: right;
+  `}
+ ${props =>
+   props.commentPostDetails &&
+   css`
+     font-size: 18px;
+     grid-area: postDetails;
+   `}
+
+ ${props =>
+   props.pageNumber &&
+   css`
+     font-size: 18px;
+     margin: auto 15px;
+   `}
+
 `;
 
 export const StyledPara = styled.p`

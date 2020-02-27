@@ -24,51 +24,55 @@ export const Button = styled.button`
   ${props =>
     props.leftArrow &&
     css`
+      padding: 10px 10px 10px 10px;
+      margin: 50px 0;
       transform: rotate(90deg);
     `}
   ${props =>
     props.rightArrow &&
     css`
+      padding: 10px 10px 10px 10px;
+      margin: 50px 0;
       transform: rotate(-90deg);
     `}
-      ${props =>
-        props.wink &&
-        css`
-          grid-row: 2/3;
-          grid-column: 1/2;
-          z-index: 3;
-          color: ${theme.e};
-          background-color: ${theme.b};
-          border: solid 3px ${theme.e};
-          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
-            1px 1px 3px rgba(0, 0, 0, 0.3);
-        `}
-              ${props =>
-                props.eyeroll &&
-                css`
-                  grid-row: 2/3;
-                  grid-column: 3/4;
-                  z-index: 3;
-                  color: ${theme.e};
-                  background-color: ${theme.b};
-                  border: solid 3px ${theme.e};
-                  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
-                    1px 1px 3px rgba(0, 0, 0, 0.3);
-                `}
-                ${props =>
-                  props.deleteComment &&
-                  css`
-                    grid-area: deleteButton;
-                    background-color: ${theme.a};
-                    padding: 3px 0 0 0;
-                    margin: 0 0 0 auto;
-                    width: 40px;
-                    height: 40px;
-                    border: solid 2px ${theme.e};
-                    border-radius: 2px;
-                    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3),
-                      1px 1px 2px rgba(0, 0, 0, 0.3);
-                  `}
+ ${props =>
+   props.wink &&
+   css`
+     grid-row: 2/3;
+     grid-column: 1/2;
+     z-index: 3;
+     color: ${theme.e};
+     background-color: ${theme.b};
+     border: solid 3px ${theme.e};
+     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
+       1px 1px 3px rgba(0, 0, 0, 0.3);
+   `}
+ ${props =>
+   props.eyeroll &&
+   css`
+     grid-row: 2/3;
+     grid-column: 3/4;
+     z-index: 3;
+     color: ${theme.e};
+     background-color: ${theme.b};
+     border: solid 3px ${theme.e};
+     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
+       1px 1px 3px rgba(0, 0, 0, 0.3);
+   `}
+ ${props =>
+   props.deleteComment &&
+   css`
+     grid-area: deleteButton;
+     background-color: ${theme.a};
+     padding: 3px 0 0 0;
+     margin: 0 0 0 auto;
+     width: 40px;
+     height: 40px;
+     border: solid 2px ${theme.e};
+     border-radius: 2px;
+     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3),
+       1px 1px 2px rgba(0, 0, 0, 0.3);
+   `}
 `;
 
 export const StyledVoteElement = styled.div`

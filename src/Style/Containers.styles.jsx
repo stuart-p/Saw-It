@@ -167,16 +167,32 @@ export const CommentCardContainer = styled.li`
 
 export const Footer = styled.section`
   position: fixed;
-  width: 100%;
+  width: 100vw;
   bottom: 0;
-  height: 4em;
+  height: 4.5em;
   background-color: ${theme.a};
   display: flex;
-  justify-content: center;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
   align-items: center;
   z-index: 10;
   h5 {
     font-size: 16px;
     margin: 0 5px;
   }
+`;
+
+export const PaginateContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+`;
+
+export const AddElementContainer = styled.div`
+  display: flex;
+`;
+
+export const AddElementForm = styled.form`
+  display: flex;
 `;
