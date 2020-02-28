@@ -228,11 +228,14 @@ export const AddElementForm = styled.form`
 
   textarea {
     flex-grow: 1;
+    font-family: "Open Sans", sans-serif;
   }
 
   button {
     margin: 0;
     border-radius: 0px;
+    background-color: ${theme.b};
+    color: ${theme.e};
   }
 `;
 
@@ -271,6 +274,7 @@ export const ExpandedButtonContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 20px;
 
   a {
     margin-left: 10px;
