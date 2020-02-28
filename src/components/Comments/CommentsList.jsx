@@ -77,9 +77,7 @@ class CommentsList extends Component {
           this.setState({ commentsArray, err: null }, resolve);
         });
       })
-      .catch(({ response }) => {
-        console.log(response);
-      });
+      .catch(({ response }) => {});
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -105,9 +103,7 @@ class CommentsList extends Component {
             );
           });
         })
-        .catch(({ response }) => {
-          console.log(response);
-        });
+        .catch(({ response }) => {});
     }
   };
   render() {
@@ -133,7 +129,6 @@ class CommentsList extends Component {
         >
           <AddComment addCommentToArticle={this.addCommentToArticle} />
         </NavigatePages>
-        {/* <AddComment addCommentToArticle={this.addCommentToArticle} /> */}
       </>
     );
   }

@@ -193,7 +193,6 @@ export const Footer = styled.section`
   position: fixed;
   width: 100vw;
   bottom: 0;
-  ${"" /* height: 4.5em; */}
   background-color: ${theme.e};
   border-top: solid 2px ${theme.e};
   padding-top: 3px;

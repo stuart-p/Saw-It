@@ -16,6 +16,11 @@ export const PageTitle = styled.h1`
       font-size: calc(25px + 7vw);
       color: ${theme.e};
     `}
+  ${props =>
+    props.landingPage &&
+    css`
+      margin-top: 10px;
+    `}
 `;
 
 export const CardHeading = styled.h2`

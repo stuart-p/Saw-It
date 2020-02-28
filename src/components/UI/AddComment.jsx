@@ -28,7 +28,6 @@ class AddComment extends Component {
         <AddElementForm onSubmit={this.onSubmit}>
           <textarea
             aria-label="Add a comment"
-            // type="textarea"
             placeholder="Add a comment..."
             onChange={this.onChange}
             value={this.state.commentInput}

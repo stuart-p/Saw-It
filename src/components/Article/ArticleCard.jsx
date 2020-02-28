@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "@reach/router";
 import VoteElement from "../UI/VoteElement";
 import { ArticleCardContainer } from "../../Style/Containers.styles";
 import { compareTimeToNow } from "../../functions/functions";

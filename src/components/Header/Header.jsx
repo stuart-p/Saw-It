@@ -42,15 +42,15 @@ class Header extends React.Component {
           <PageTitle headline>SAW-IT</PageTitle>
           <SubHeading header>hello, {this.props.loggedInAs}!</SubHeading>
           <HeaderButtonBox>
-            {/* <Link to="/">
-            <Button>home</Button>
-          </Link> */}
             <Button
               onClick={this.toggleTopicsShowing}
               menuExpand
               topicsExpanded={this.state.topicsShowing}
             >
-              <img src="https://img.icons8.com/metro/26/ffffff/expand-arrow.png" />
+              <img
+                src="https://img.icons8.com/metro/26/ffffff/expand-arrow.png"
+                alt="expand arrow"
+              />
             </Button>
           </HeaderButtonBox>
         </TitleHeaderContainer>

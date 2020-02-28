@@ -12,7 +12,6 @@ class VoteElement extends React.Component {
   state = {
     voteModification: 0,
     clapGrowAnimation: false
-    // animationFinished: false
   };
 
   onClick = (route, element_id, voteValue, event) => {
@@ -21,7 +20,6 @@ class VoteElement extends React.Component {
       this.setState(currentState => {
         return {
           voteModification: currentState.voteModification + voteValue,
-          // animationFinished: false,
           clapGrowAnimation: !currentState.clapGrowAnimation
         };
       }, resolve);
@@ -33,9 +31,6 @@ class VoteElement extends React.Component {
   onAnimationEnd = () => {
     this.setState({ clapGrowAnimation: false });
   };
-  // onAnimationStart = () => {
-  //   this.setState({ animationFinished: false });
-  // };
 
   render() {
     const clapAnimation = classNames({
@@ -76,14 +71,6 @@ class VoteElement extends React.Component {
             onAnimationStart={this.onAnimationStart}
           />
         </div>
-        {/* <Button
-          onClick={() =>
-            this.onClick(this.props.route, this.props.element_id, -1)
-          }
-          eyeroll
-        >
-          Eyeroll
-        </Button> */}
       </StyledVoteElement>
     );
   }

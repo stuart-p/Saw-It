@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { TopicCardContainer } from "../../Style/Containers.styles";
-import { CardHeading, SubHeading, StyledLink } from "../../Style/Texts.styles";
+import { CardHeading, SubHeading } from "../../Style/Texts.styles";
 
 const TopicCard = ({ slug, description, closeTopicsMenu }) => {
   return (

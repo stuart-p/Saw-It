@@ -85,11 +85,9 @@ class ArticleList extends Component {
         this.setState({ isLoading: true }, resolve);
       })
         .then(() => {
-          // console.log("here in article list");
           return api.fetchArticles(fetchParams);
         })
         .then(articleArray => {
-          // console.log(articleArray);
           this.setState({
             articleArray,
             isLoading: false
@@ -98,7 +96,6 @@ class ArticleList extends Component {
     }
   };
   render() {
-    // console.log(this.state);
     return (
       <>
         {this.state.isLoading && <LoadingScreen />}

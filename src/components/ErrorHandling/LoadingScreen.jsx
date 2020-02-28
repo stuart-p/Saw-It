@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  FullScreenContainer,
-  HeaderContainer
-} from "../../Style/Containers.styles";
+import { FullScreenContainer } from "../../Style/Containers.styles";
 import { ReactComponent as Eye } from "../../images/eyeIcon.svg";
 
 const LoadingScreen = () => {

@@ -13,22 +13,6 @@ class ArticlePage extends Component {
     err: null
   };
 
-  // voteOnArticle = (article_id, voteChangeValue) => {
-  //   return new Promise(resolve => {
-  //     this.setState(currentState => {
-  //       console.log(currentState.article.votes);
-  //       return {
-  //         article: {
-  //           ...currentState.article,
-  //           votes: currentState.article.votes + voteChangeValue
-  //         }
-  //       };
-  //     }, resolve);
-  //   }).then(() => {
-  //     api.modifyVotesOnElement(`articles/${article_id}`, voteChangeValue);
-  //   });
-  // };
-
   componentDidMount = () => {
     api
       .fetchSpecificArticle(this.props.article_id)
@@ -38,7 +22,6 @@ class ArticlePage extends Component {
         });
       })
       .catch(({ response }) => {
-        console.log(response);
         this.setState({
           isLoading: false,
           err: {
