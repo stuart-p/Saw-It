@@ -40,25 +40,24 @@ export const PrimaryContainer = styled.section`
 `;
 
 export const HeaderContainer = styled.header`
-position: relative;
+  position: relative;
   background-color: ${theme.a};
   padding: 0 5vw;
+  z-index: 8;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+`;
+
+export const TitleHeaderContainer = styled.div`
   color: ${theme.e};
   transition: all 1s ease;
 
   display: grid;
   grid-template-columns: 75px 1fr 1fr;
-
-  grid-template-rows: ${props =>
-    props.showTopics ? css`50px 25px 1em  500px` : css`50px 25px 1.7em  0px`};
-  };
+  grid-template-rows: 50px 25px 1.7em;
   grid-template-areas:
     "logo title title"
     "logo title title"
-    " buttons welcome welcome"
-    "topics topics topics";
+    " buttons welcome welcome";
 
   svg {
     fill: ${theme.e};
@@ -97,7 +96,7 @@ export const ArticleCardContainer = styled.li`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 30px 1fr;
-  grid-template-rows: 1.4em 1.8em 1fr 1.5em 6em;
+  grid-template-rows: 1.4em 2em 1fr 1.5em 6em;
   grid-template-areas:
     "logo topicName"
     "logo postDetails"
@@ -148,7 +147,7 @@ export const ArticleDetailContainer = styled.section`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 30px 1fr;
-  grid-template-rows: 1.5em 1.5em 1fr auto 1.5em 6em;
+  grid-template-rows: 1.5em 2em 1fr auto 1.5em 6em;
   grid-template-areas:
     "logo topicName"
     "logo postDetails"
@@ -239,16 +238,34 @@ export const AddElementForm = styled.form`
 `;
 
 export const TopicHeaderContainer = styled.div`
+  position: absolute;
   grid-area: topics;
   display: flex;
   flex-direction: column;
-  margin: 30px auto 0px auto;
-  padding: 0 5px;
+  background-color: ${theme.a};
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0 0 0 0;
   width: 100%;
   align-items: center;
   justify-content: flex-start;
   overflow-x: hidden;
   overflow-y: scroll;
+  transition: all 1s ease;
+  height: 0px;
+  ${props =>
+    props.showTopics &&
+    css`
+      padding: 2.4em 0 0 0;
+
+      margin: 0px auto 0px auto;
+      border-bottom: solid 2px ${theme.e};
+
+      height: 500px;
+    `}
+  z-index: 8;
 `;
 
 export const ExpandedButtonContainer = styled.div`

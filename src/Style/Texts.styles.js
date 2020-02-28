@@ -30,7 +30,6 @@ export const CardHeading = styled.h2`
     props.topicSlug &&
     css`
       grid-area: topicSlug;
-      text-decoration: none;
     `}
 `;
 

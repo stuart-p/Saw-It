@@ -80,6 +80,7 @@ export const Button = styled.button`
        max-height: 2em;
        padding: 2px 25px 2px;
        margin: 0;
+       z-index: 10;
        align-self: end;
        animation: 0.5s ease-out 0.5s 3 initialWiggle;
        @keyframes initialWiggle {
