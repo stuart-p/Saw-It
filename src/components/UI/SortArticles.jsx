@@ -27,7 +27,7 @@ class SortArticles extends Component {
       <ArticleSortContainer>
         <form onSubmit={this.onSubmit}>
           <label>
-            sort articles by:
+            sort articles by: <br />
             <select
               name="sort_by"
               onChange={this.onChange}
@@ -40,7 +40,7 @@ class SortArticles extends Component {
             </select>
           </label>
           <label>
-            order articles:
+            article order: <br />
             <select
               name="order"
               onChange={this.onChange}

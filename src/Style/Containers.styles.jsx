@@ -35,13 +35,13 @@ export const PrimaryContainer = styled.section`
   background-color: ${theme.d};
   flex-grow: 1;
   margin: 0;
-  padding: 0;
+  padding: 1.5em 0 0 0;
   border: none;
 `;
 
 export const HeaderContainer = styled.header`
+position: relative;
   background-color: ${theme.a};
-  margin: 0;
   padding: 0 5vw;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   z-index: 2;
@@ -52,19 +52,16 @@ export const HeaderContainer = styled.header`
   grid-template-columns: 75px 1fr 1fr;
 
   grid-template-rows: ${props =>
-    props.showTopics
-      ? css`50px 25px 1em 1fr 500px`
-      : css`50px 25px 1em 1fr 0px`};
+    props.showTopics ? css`50px 25px 1em  500px` : css`50px 25px 1.7em  0px`};
   };
   grid-template-areas:
     "logo title title"
-    "logo welcome welcome"
-    " . welcome welcome"
-    "buttons buttons buttons"
+    "logo title title"
+    " buttons welcome welcome"
     "topics topics topics";
 
   svg {
-    fill: ${theme.c};
+    fill: ${theme.e};
   }
   ul {
     grid-area: topics;
@@ -95,7 +92,7 @@ export const ArticleCardContainer = styled.li`
   position: relative;
   list-style-type: none;
   background-color: ${theme.c};
-  margin: 5px 0;
+  margin: 5px auto;
   padding: 3px 20px;
   width: 80%;
   border: solid ${theme.e} 2px;
@@ -103,11 +100,12 @@ export const ArticleCardContainer = styled.li`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 30px 1fr;
-  grid-template-rows: 1.5em 1.5em 1fr 6em;
+  grid-template-rows: 1.4em 1.8em 1fr 1.5em 6em;
   grid-template-areas:
     "logo topicName"
     "logo postDetails"
     "_ articleSummary"
+    "_ commentCount"
     "_ engagementSummary";
 `;
 
@@ -117,7 +115,7 @@ export const ArticleSortContainer = styled.section`
   width: 80%;
   max-width: 320px;
   background-color: ${theme.c};
-  border: solid 3px ${theme.e};
+  border: solid 2px ${theme.e};
   border-radius: 4px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
@@ -130,6 +128,7 @@ export const ArticleSortContainer = styled.section`
     grid-column: 2/3;
     grid-row: 1/3;
     padding: 15px 0;
+    max-height: 50px;
   }
   label {
     font-size: 16px;

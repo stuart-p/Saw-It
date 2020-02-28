@@ -25,7 +25,7 @@ class App extends React.Component {
           <LandingPage path="/" loggedInAs={this.state.loggedInAs} />
           <TopicPage path="/:topicSlug" loggedInAs={this.state.loggedInAs} />
           <ArticlePage
-            path="/:topicSlug/:article_id"
+            path="/:topicSlug/article/:article_id"
             loggedInAs={this.state.loggedInAs}
           />
           <ErrorScreen

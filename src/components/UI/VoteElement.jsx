@@ -15,7 +15,8 @@ class VoteElement extends React.Component {
     // animationFinished: false
   };
 
-  onClick = (route, element_id, voteValue) => {
+  onClick = (route, element_id, voteValue, event) => {
+    event.preventDefault();
     return new Promise(resolve => {
       this.setState(currentState => {
         return {
@@ -44,21 +45,21 @@ class VoteElement extends React.Component {
     return (
       <StyledVoteElement articleCard>
         <h6
-          onClick={() =>
-            this.onClick(this.props.route, this.props.element_id, 1)
+          onClick={event =>
+            this.onClick(this.props.route, this.props.element_id, 1, event)
           }
         >
           {this.props.votes + this.state.voteModification}
         </h6>
         <div>
           <VoteElementBackgroundStripe
-            onClick={() =>
-              this.onClick(this.props.route, this.props.element_id, 1)
+            onClick={event =>
+              this.onClick(this.props.route, this.props.element_id, 1, event)
             }
           />
           <Button
-            onClick={() =>
-              this.onClick(this.props.route, this.props.element_id, 1)
+            onClick={event =>
+              this.onClick(this.props.route, this.props.element_id, 1, event)
             }
             wink
           >
@@ -68,8 +69,8 @@ class VoteElement extends React.Component {
             className={clapAnimation}
             height={44}
             width={44}
-            onClick={() =>
-              this.onClick(this.props.route, this.props.element_id, 1)
+            onClick={event =>
+              this.onClick(this.props.route, this.props.element_id, 1, event)
             }
             onAnimationEnd={this.onAnimationEnd}
             onAnimationStart={this.onAnimationStart}

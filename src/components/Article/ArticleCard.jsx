@@ -18,24 +18,24 @@ const ArticleCard = ({
 }) => {
   const howLongAgo = compareTimeToNow(created_at);
   return (
-    <ArticleCardContainer>
-      <SubHeading articleTopicName>{topic}</SubHeading>
-      <SubHeading articlePostDetails>
-        {author === loggedInAs ? "you" : author} posted {howLongAgo}
-      </SubHeading>
+    <StyledLink to={`/${topic}/article/${article_id}`}>
+      <ArticleCardContainer>
+        <SubHeading articleTopicName>{topic}</SubHeading>
+        <SubHeading articlePostDetails>
+          {author === loggedInAs ? "you" : author} posted {howLongAgo}
+        </SubHeading>
 
-      <StyledLink to={`/${topic}/${article_id}`}>
         <CardHeading articleSummary>{title}</CardHeading>
-        <h5>comments: {comment_count}</h5>
-      </StyledLink>
-      <VoteElement
-        route="articles"
-        element_id={article_id}
-        votes={votes}
-        articleCard
-      />
-      <ArticleCardStripe />
-    </ArticleCardContainer>
+        <SubHeading articleCommentCount>{comment_count} comments</SubHeading>
+        <VoteElement
+          route="articles"
+          element_id={article_id}
+          votes={votes}
+          articleCard
+        />
+        <ArticleCardStripe />
+      </ArticleCardContainer>
+    </StyledLink>
   );
 };
 

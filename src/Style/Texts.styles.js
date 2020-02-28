@@ -7,6 +7,15 @@ export const PageTitle = styled.h1`
   grid-area: title;
   margin: 0;
   align-self: center;
+
+  ${props =>
+    props.headline &&
+    css`
+      text-align: start;
+      padding: 20px 0 0 20px;
+      font-size: calc(25px + 7vw);
+      color: ${theme.e};
+    `}
 `;
 
 export const CardHeading = styled.h2`
@@ -21,6 +30,9 @@ export const CardHeading = styled.h2`
 
 export const StyledLink = styled(Link)`
   grid-area: articleSummary;
+  color: black;
+  text-decoration: none;
+  width: 100%;
 `;
 
 export const SubHeading = styled.h3`
@@ -70,6 +82,7 @@ ${props =>
 `;
 
 export const StyledPara = styled.p`
+  font-family: "Open Sans", sans-serif;
   ${props =>
     props.articleBody &&
     css`

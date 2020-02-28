@@ -71,6 +71,23 @@ export const Button = styled.button`
      box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3),
        1px 1px 2px rgba(0, 0, 0, 0.3);
    `}
+
+   ${props =>
+     props.menuExpand &&
+     css`
+       position: absolute;
+       bottom: -2em;
+       max-height: 2em;
+       padding: 2px 25px 2px;
+       margin: 0;
+       align-self: end;
+
+       &:active {
+         position: absolute;
+         bottom: -2.2em;
+         top: auto;
+       }
+     `}
 `;
 
 export const StyledVoteElement = styled.div`
