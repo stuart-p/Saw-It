@@ -82,7 +82,6 @@ export const Button = styled.button`
        margin: 0;
        align-self: end;
        animation: 0.5s ease-out 0.5s 3 initialWiggle;
-
        @keyframes initialWiggle {
          0% {
            bottom: -2em;
@@ -94,12 +93,14 @@ export const Button = styled.button`
            bottom: -2em;
          }
        }
+       transform: ${props => props.topicsExpanded && css` rotate(180deg)`};
        &:active {
          position: absolute;
          bottom: -2.2em;
          top: auto;
        }
      `}
+
 `;
 
 export const StyledVoteElement = styled.div`

@@ -43,7 +43,11 @@ class Header extends React.Component {
           {/* <Link to="/">
             <Button>home</Button>
           </Link> */}
-          <Button onClick={this.toggleTopicsShowing} menuExpand>
+          <Button
+            onClick={this.toggleTopicsShowing}
+            menuExpand
+            topicsExpanded={this.state.topicsShowing}
+          >
             <img src="https://img.icons8.com/metro/26/ffffff/expand-arrow.png" />
           </Button>
         </HeaderButtonBox>
@@ -54,7 +58,7 @@ class Header extends React.Component {
                 <Button onClick={this.closeTopicsMenu}>home</Button>
               </Link>
               <a href="https://stuart-p.github.io">
-                <Button>Portfolio</Button>
+                <Button>My Portfolio</Button>
               </a>
             </ExpandedButtonContainer>
             <SubHeading>Browse topics:</SubHeading>
