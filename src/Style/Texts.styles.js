@@ -26,6 +26,12 @@ export const CardHeading = styled.h2`
     css`
       grid-area: articleSummary;
     `}
+  ${props =>
+    props.topicSlug &&
+    css`
+      grid-area: topicSlug;
+      text-decoration: none;
+    `}
 `;
 
 export const StyledLink = styled(Link)`
@@ -78,6 +84,12 @@ ${props =>
      margin: auto 15px;
      color: ${theme.c};
    `}
+   ${props => {
+     props.topicCardDetails &&
+       css`
+         grid-area: topicDetails;
+       `;
+   }}
 
 `;
 

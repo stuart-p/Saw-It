@@ -81,7 +81,19 @@ export const Button = styled.button`
        padding: 2px 25px 2px;
        margin: 0;
        align-self: end;
+       animation: 0.5s ease-out 0.5s 3 initialWiggle;
 
+       @keyframes initialWiggle {
+         0% {
+           bottom: -2em;
+         }
+         50% {
+           bottom: -2.2em;
+         }
+         100% {
+           bottom: -2em;
+         }
+       }
        &:active {
          position: absolute;
          bottom: -2.2em;

@@ -3,7 +3,8 @@ import TopicList from "../Topic/TopicList";
 import { Link } from "@reach/router";
 import {
   HeaderContainer,
-  HeaderButtonBox
+  HeaderButtonBox,
+  TopicHeaderContainer
 } from "../../Style/Containers.styles";
 import { PageTitle, SubHeading } from "../../Style/Texts.styles";
 import { Button } from "../../Style/UI.styles";
@@ -46,7 +47,10 @@ class Header extends React.Component {
           </Button>
         </HeaderButtonBox>
         {this.state.topicsShowing && (
-          <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+          <TopicHeaderContainer>
+            <SubHeading>Browse topics:</SubHeading>
+            <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+          </TopicHeaderContainer>
         )}
       </HeaderContainer>
     );

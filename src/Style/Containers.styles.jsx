@@ -63,9 +63,6 @@ position: relative;
   svg {
     fill: ${theme.e};
   }
-  ul {
-    grid-area: topics;
-  }
 `;
 
 export const ContentContainer = styled.div`
@@ -239,4 +236,53 @@ export const AddElementForm = styled.form`
     margin: 0;
     border-radius: 0px;
   }
+`;
+
+export const TopicHeaderContainer = styled.div`
+  grid-area: topics;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto 0px auto;
+  padding: 0 5px;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: scroll;
+`;
+
+export const TopicListContainer = styled.ul`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 30px auto 0px auto;
+  padding: 0 5px;
+  width: 80%;
+  align-items: center;
+  justify-content: space-around;
+  overflow-x: hidden;
+  overflow-y: scroll;
+`;
+
+export const TopicCardContainer = styled.li`
+  position: relative;
+  list-style-type: none;
+  background-color: ${theme.c};
+  margin: 5px auto;
+  padding: 3px 20px;
+  width: 10em;
+  min-height: 6em;
+  border: solid ${theme.e} 2px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5em 1fr;
+  grid-template-areas:
+    "topicSlug"
+    "topicDetails";
+
+  color: black;
+  text-decoration: none;
 `;

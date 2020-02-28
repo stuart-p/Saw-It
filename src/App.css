@@ -11,6 +11,10 @@ body {
   overscroll-behavior: none;
   scroll-behavior: smooth;
 }
+
+a {
+  text-decoration: none;
+}
 #root {
   height: 100%;
   display: flex;
@@ -22,13 +26,9 @@ body {
   flex-direction: column;
   justify-content: stretch;
 }
-button {
-  background-color: cornflowerblue;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
+
 /* ======== */
-.articleCard {
+/* .articleCard {
   list-style-type: none;
   background-color: blanchedalmond;
   border: solid black 1px;
@@ -48,24 +48,24 @@ button {
   flex-direction: column;
 
   padding: 0 5px;
-}
+} */
 /* ======= */
-.topicList {
+/* .topicList {
   display: flex;
   flex-direction: column;
-  /* grid-area: topics; */
+  grid-area: topics;
   padding: 0 5px;
-}
+} */
 
 /* ========= */
-.commentCard {
+/* .commentCard {
   background-color: gold;
   border: solid black 1px;
   list-style-type: none;
-}
+} */
 
 /* =========== */
-.voteElement {
+/* .voteElement {
   background-color: firebrick;
   border: solid black 1px;
   display: flex;
@@ -82,19 +82,8 @@ button {
   padding: 2px 10px;
   margin: 0 10px;
   height: 40px;
-}
+} */
 
 /* ======== */
 
-/* .loadingScreen {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: gray;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 /*temp styling ends ===================================*/

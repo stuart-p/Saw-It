@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "@reach/router";
+import { TopicCardContainer } from "../../Style/Containers.styles";
+import { CardHeading, SubHeading, StyledLink } from "../../Style/Texts.styles";
 
 const TopicCard = ({ slug, description, closeTopicsMenu }) => {
   return (
     <Link to={`/${slug}`} onClick={closeTopicsMenu}>
-      <li className="articleCard">
-        <h2>{slug}</h2>
-        <h3>{description}</h3>
-      </li>
+      <TopicCardContainer>
+        <CardHeading>{slug}</CardHeading>
+        <SubHeading>{description}</SubHeading>
+      </TopicCardContainer>
     </Link>
   );
 };
