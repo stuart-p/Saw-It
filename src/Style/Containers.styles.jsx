@@ -251,6 +251,16 @@ export const TopicHeaderContainer = styled.div`
   overflow-y: scroll;
 `;
 
+export const ExpandedButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  a {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+`;
 export const TopicListContainer = styled.ul`
   flex-grow: 1;
   display: flex;
@@ -271,14 +281,14 @@ export const TopicCardContainer = styled.li`
   background-color: ${theme.c};
   margin: 5px auto;
   padding: 3px 20px;
-  width: 10em;
-  min-height: 6em;
+  width: 12em;
+  min-height: 8em;
   border: solid ${theme.e} 2px;
   border-radius: 4px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1.5em 1fr;
+  grid-template-rows: 3em 1fr;
   grid-template-areas:
     "topicSlug"
     "topicDetails";

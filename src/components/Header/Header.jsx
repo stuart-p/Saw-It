@@ -4,7 +4,8 @@ import { Link } from "@reach/router";
 import {
   HeaderContainer,
   HeaderButtonBox,
-  TopicHeaderContainer
+  TopicHeaderContainer,
+  ExpandedButtonContainer
 } from "../../Style/Containers.styles";
 import { PageTitle, SubHeading } from "../../Style/Texts.styles";
 import { Button } from "../../Style/UI.styles";
@@ -48,6 +49,14 @@ class Header extends React.Component {
         </HeaderButtonBox>
         {this.state.topicsShowing && (
           <TopicHeaderContainer>
+            <ExpandedButtonContainer>
+              <Link to="/">
+                <Button onClick={this.closeTopicsMenu}>home</Button>
+              </Link>
+              <a href="https://stuart-p.github.io">
+                <Button>Portfolio</Button>
+              </a>
+            </ExpandedButtonContainer>
             <SubHeading>Browse topics:</SubHeading>
             <TopicList closeTopicsMenu={this.closeTopicsMenu} />
           </TopicHeaderContainer>
