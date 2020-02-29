@@ -35,11 +35,7 @@ class VoteElement extends React.Component {
         return api.modifyVotesOnElement(`${route}/${element_id}`, voteValue);
       })
       .then(() => {
-        NotificationManager.success(
-          "You applauded this post!",
-          "Success!",
-          2000
-        );
+        NotificationManager.success("You applauded!", "Success!", 1000);
       })
       .catch(err => {
         NotificationManager.error(err.response.data.msg, "Error", 2000);

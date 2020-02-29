@@ -10,8 +10,8 @@ export const FullScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  background-color: ${theme.b};
+  justify-content: center;
+  background-color: ${theme.d};
   z-index: 20;
 
   div {
@@ -26,7 +26,7 @@ export const FullScreenContainer = styled.div`
     flex-grow: 1;
     font-size: 36px;
     margin: auto auto;
-    padding-top: 50%;
+    padding-top: 20%;
   }
 `;
 
