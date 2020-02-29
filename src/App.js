@@ -6,6 +6,8 @@ import TopicPage from "./components/Topic/TopicPage";
 import ArticlePage from "./components/Article/ArticlePage";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ErrorScreen from "./components/ErrorHandling/ErrorScreen";
+import "react-notifications/lib/notifications.css";
+import { NotificationContainer } from "react-notifications";
 
 class App extends React.Component {
   state = {
@@ -21,6 +23,7 @@ class App extends React.Component {
     return (
       <>
         <Header loggedInAs={this.state.loggedInAs} />
+        <NotificationContainer />
         <Router className="main">
           <LandingPage path="/" loggedInAs={this.state.loggedInAs} />
           <TopicPage path="/:topicSlug" loggedInAs={this.state.loggedInAs} />

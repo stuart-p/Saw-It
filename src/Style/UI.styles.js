@@ -44,7 +44,7 @@ export const Button = styled.button`
      grid-row: 1/2;
      grid-column: 2/3;
      z-index: 3;
-     width: min-content;
+     width: 3.8em;
      padding: 10px;
      margin: auto 50px 2px 0;
      color: ${theme.e};
@@ -189,6 +189,8 @@ export const ArticleCardStripe = styled.div`
   left: 0;
   right: 0;
   background-color: ${theme.e};
+  -webkit-clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
+
   clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
 `;
 
@@ -199,6 +201,7 @@ export const CommentCardStripe = styled.div`
   left: 0;
   right: 0;
   background-color: ${theme.a};
+  -webkit-clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
   clip-path: polygon(0 0, 35px 0, 35px 100%, 0 100%);
 `;
 

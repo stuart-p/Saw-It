@@ -5,16 +5,21 @@ import CommentCard from "./CommentCard";
 import { CommentsListContainer } from "../../Style/Containers.styles";
 import NavigatePages from "../UI/NavigatePages";
 import LoadingScreen from "../ErrorHandling/LoadingScreen";
+import { NotificationManager } from "react-notifications";
 
 class CommentsList extends Component {
-  state = {
-    commentsArray: [],
-    queries: {
-      p: 1
-    },
-    err: null,
-    isLoading: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      commentsArray: [],
+      queries: {
+        p: 1
+      },
+      err: null,
+      isLoading: false
+    };
+    this.topOfContainer = React.createRef();
+  }
 
   setQueryValues = queries => {
     this.setState(currentState => {
@@ -36,6 +41,7 @@ class CommentsList extends Component {
       }, resolve);
     })
       .then(() => {
+        window.scrollTo(0, this.topOfContainer.current.offsetTop);
         return api.postCommentToArticle(
           this.props.article_id,
           this.props.loggedInAs,
@@ -49,6 +55,11 @@ class CommentsList extends Component {
               return postedCommentObject;
             } else return { ...comment };
           }
+        );
+        NotificationManager.success(
+          "comment added to article",
+          "success!",
+          2000
         );
         this.setState({ commentsArray: commentsArrayWithPostInserted });
       });
@@ -64,9 +75,16 @@ class CommentsList extends Component {
         );
         return { commentsArray: commentsArrayWithCommentDeleted };
       }, resolve);
-    }).then(() => {
-      api.deleteCommentFromArticle(comment_id);
-    });
+    })
+      .then(() => {
+        return api.deleteCommentFromArticle(comment_id);
+      })
+      .then(() => {
+        NotificationManager.success("comment deleted!", "success!", 2000);
+      })
+      .catch(err => {
+        NotificationManager.error(err.response.data.msg, "error", 2000);
+      });
   };
 
   componentDidMount = () => {
@@ -107,10 +125,11 @@ class CommentsList extends Component {
     }
   };
   render() {
+    console.log(this.topOfContainer);
     return (
       <>
         {this.state.isLoading && <LoadingScreen />}
-        <CommentsListContainer>
+        <CommentsListContainer ref={this.topOfContainer}>
           {this.state.commentsArray.map(comment => {
             return (
               <CommentCard

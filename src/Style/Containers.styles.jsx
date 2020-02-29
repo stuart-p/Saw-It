@@ -44,7 +44,8 @@ export const HeaderContainer = styled.header`
   background-color: ${theme.a};
   padding: 0 5vw;
   z-index: 8;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: ${props =>
+    !props.showTopics && css`0 5px 10px rgba(0, 0, 0, 0.3)`};
 `;
 
 export const TitleHeaderContainer = styled.div`
@@ -245,7 +246,7 @@ export const TopicHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${theme.a};
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.3);
   top: 100%;
   left: 0;
   margin: 0;
