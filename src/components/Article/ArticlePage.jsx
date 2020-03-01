@@ -4,7 +4,12 @@ import * as api from "../../functions/api";
 import CommentsList from "../Comments/CommentsList";
 import LoadingScreen from "../ErrorHandling/LoadingScreen";
 import ErrorScreen from "../ErrorHandling/ErrorScreen";
-import { PrimaryContainer } from "../../Style/Containers.styles";
+import {
+  PrimaryContainer,
+  BackToTopicHeaderContainer
+} from "../../Style/Containers.styles";
+import { Link } from "@reach/router";
+import { Button } from "../../Style/UI.styles";
 
 class ArticlePage extends Component {
   state = {
@@ -53,6 +58,11 @@ class ArticlePage extends Component {
           <ErrorScreen err={this.state.err} />
         ) : (
           <>
+            <BackToTopicHeaderContainer>
+              <Link to={`/${this.props.topicSlug}`}>
+                <Button backToTopicPage>Back to topic main page</Button>
+              </Link>
+            </BackToTopicHeaderContainer>
             <ArticleDetails
               className="article-details"
               {...this.state.article}

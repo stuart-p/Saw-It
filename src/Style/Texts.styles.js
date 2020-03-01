@@ -12,8 +12,8 @@ export const PageTitle = styled.h1`
     props.headline &&
     css`
       text-align: start;
-      padding: 20px 0 0 20px;
-      font-size: calc(25px + 7vw);
+      padding: 25px 0 3px 20px;
+      font-size: calc(30px + 5vw);
       color: ${theme.e};
     `}
   ${props =>

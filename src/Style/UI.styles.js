@@ -84,8 +84,7 @@ export const Button = styled.button`
        align-self: end;
        background-color: ${theme.b};
        border: solid 2px ${theme.e};
-       ${"" /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3),
-         3px 3px 6px rgba(0, 0, 0, 0.3); */}
+       box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
        animation: 0.5s ease-out 0.5s 3 initialWiggle;
        @keyframes initialWiggle {
          0% {
@@ -105,6 +104,8 @@ export const Button = styled.button`
          top: auto;
        }
      `}
+
+  
 
 `;
 

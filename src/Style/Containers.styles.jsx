@@ -96,14 +96,14 @@ export const ArticleCardContainer = styled.li`
   border-radius: 4px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   display: grid;
-  grid-template-columns: 30px 1fr;
+  grid-template-columns: 30px 1fr 50px;
   grid-template-rows: 1.4em 2em 1fr 1.5em 6em;
   grid-template-areas:
-    "logo topicName"
-    "logo postDetails"
-    "_ articleSummary"
-    "_ commentCount"
-    "_ engagementSummary";
+    "logo topicName deleteButton"
+    "logo postDetails postDetails"
+    "_ articleSummary articleSummary"
+    "_ commentCount commentCount"
+    "_ engagementSummary engagementSummary";
 `;
 
 export const ArticleSortContainer = styled.section`
@@ -160,6 +160,12 @@ export const ArticleDetailContainer = styled.section`
   margin: 10px auto 10px auto;
   max-width: 800px;
   align-items: center;
+`;
+
+export const BackToTopicHeaderContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin 0 20px 0 0;
 `;
 
 export const CommentsListContainer = styled.ul`
@@ -294,7 +300,7 @@ export const TopicListContainer = styled.ul`
   align-items: center;
   justify-content: space-around;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export const TopicCardContainer = styled.li`

@@ -3,7 +3,8 @@ import VoteElement from "../UI/VoteElement";
 import { ArticleCardContainer } from "../../Style/Containers.styles";
 import { compareTimeToNow } from "../../functions/functions";
 import { SubHeading, CardHeading, StyledLink } from "../../Style/Texts.styles";
-import { ArticleCardStripe } from "../../Style/UI.styles";
+import { ArticleCardStripe, Button } from "../../Style/UI.styles";
+import { ReactComponent as Delete } from "../../images/trash.svg";
 
 const ArticleCard = ({
   title,
@@ -13,9 +14,16 @@ const ArticleCard = ({
   article_id,
   author,
   loggedInAs,
-  created_at
+  created_at,
+  deleteArticleFromTopic
 }) => {
   const howLongAgo = compareTimeToNow(created_at);
+
+  const handlClick = event => {
+    event.preventDefault();
+    deleteArticleFromTopic(article_id);
+  };
+
   return (
     <StyledLink to={`/${topic}/article/${article_id}`}>
       <ArticleCardContainer>
@@ -32,6 +40,11 @@ const ArticleCard = ({
           votes={votes}
           articleCard
         />
+        {author === loggedInAs && (
+          <Button onClick={handlClick} deleteComment>
+            <Delete height={28} width={28} />
+          </Button>
+        )}
         <ArticleCardStripe />
       </ArticleCardContainer>
     </StyledLink>

@@ -59,3 +59,17 @@ export const modifyVotesOnElement = (patchRoute, voteChangeValue) => {
     .patch(baseURL + patchRoute, { inc_votes: voteChangeValue })
     .then(res => {});
 };
+
+export const postArticleToTopic = (topic, author, title, body) => {
+  return axios
+    .post(baseURL + `articles`, { topic, author, title, body })
+    .then(res => {
+      console.log(res);
+      const postedArticle = res.data.article;
+      return postedArticle;
+    });
+};
+
+export const removeArticleFromTopic = article_id => {
+  return axios.delete(baseURL + `articles/${article_id}`).then(res => {});
+};
