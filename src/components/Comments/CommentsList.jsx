@@ -125,7 +125,6 @@ class CommentsList extends Component {
     }
   };
   render() {
-    console.log(this.topOfContainer);
     return (
       <>
         {this.state.isLoading && <LoadingScreen />}

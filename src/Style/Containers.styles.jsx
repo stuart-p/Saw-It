@@ -255,11 +255,12 @@ export const TopicHeaderContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
   transition: all 1s ease;
   height: 0px;
   ${props =>
     props.showTopics &&
+    !props.stickyNavShowing &&
     css`
       padding: 2.4em 0 0 0;
 
@@ -316,4 +317,22 @@ export const TopicCardContainer = styled.li`
 
   color: black;
   text-decoration: none;
+`;
+
+export const StickNavContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: ${theme.a};
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 4vh;
+  max-height: 40px;
+  z-index: 12;
+  transition: all 1s ease;
+  ${props =>
+    props.showTopics &&
+    css`
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    `}
 `;

@@ -10,11 +10,17 @@ import {
 } from "../../Style/Containers.styles";
 import { PageTitle, SubHeading } from "../../Style/Texts.styles";
 import { Button } from "../../Style/UI.styles";
+import StickyNavBar from "./StickyNavBar";
 
 class Header extends React.Component {
-  state = {
-    topicsShowing: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      topicsShowing: false,
+      stickyNavShowing: false
+    };
+    this.staticHeaderPosition = React.createRef();
+  }
 
   toggleTopicsShowing = () => {
     this.setState(currentState => {
@@ -26,10 +32,32 @@ class Header extends React.Component {
     this.setState({ topicsShowing: false });
   };
 
+  handleScroll = () => {
+    if (
+      window.scrollY > this.staticHeaderPosition.current.offsetHeight &&
+      this.state.stickyNavShowing === false
+    ) {
+      this.setState({ stickyNavShowing: true, topicsShowing: false });
+    } else if (
+      window.scrollY < this.staticHeaderPosition.current.offsetHeight &&
+      this.state.stickyNavShowing === true
+    ) {
+      this.setState({ stickyNavShowing: false });
+    }
+  };
+
+  componentDidMount = () => {
+    window.addEventListener("scroll", this.handleScroll);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("scroll", this.handleScroll);
+  };
+
   render() {
     return (
       <HeaderContainer showTopics={this.state.topicsShowing}>
-        <TitleHeaderContainer>
+        <TitleHeaderContainer ref={this.staticHeaderPosition}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="75"
@@ -48,13 +76,16 @@ class Header extends React.Component {
               topicsExpanded={this.state.topicsShowing}
             >
               <img
-                src="https://img.icons8.com/metro/26/ffffff/expand-arrow.png"
+                src="https://img.icons8.com/metro/26/000000/expand-arrow.png"
                 alt="expand arrow"
               />
             </Button>
           </HeaderButtonBox>
         </TitleHeaderContainer>
-        <TopicHeaderContainer showTopics={this.state.topicsShowing}>
+        <TopicHeaderContainer
+          showTopics={this.state.topicsShowing}
+          stickyNavShowing={this.state.stickyNavShowing}
+        >
           <ExpandedButtonContainer>
             <Link to="/">
               <Button onClick={this.closeTopicsMenu}>home</Button>
@@ -66,6 +97,35 @@ class Header extends React.Component {
           <SubHeading>Browse topics:</SubHeading>
           <TopicList closeTopicsMenu={this.closeTopicsMenu} />
         </TopicHeaderContainer>
+        {this.state.stickyNavShowing && (
+          <StickyNavBar showTopics={this.state.topicsShowing}>
+            <Button
+              onClick={this.toggleTopicsShowing}
+              menuExpand
+              topicsExpanded={this.state.topicsShowing}
+            >
+              <img
+                src="https://img.icons8.com/metro/26/000000/expand-arrow.png"
+                alt="expand arrow"
+              />
+            </Button>
+            <TopicHeaderContainer
+              showTopics={this.state.topicsShowing}
+              stickyNavShowing={!this.state.stickyNavShowing}
+            >
+              <ExpandedButtonContainer>
+                <Link to="/">
+                  <Button onClick={this.closeTopicsMenu}>home</Button>
+                </Link>
+                <a href="https://stuart-p.github.io">
+                  <Button>My Portfolio</Button>
+                </a>
+              </ExpandedButtonContainer>
+              <SubHeading>Browse topics:</SubHeading>
+              <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+            </TopicHeaderContainer>
+          </StickyNavBar>
+        )}
       </HeaderContainer>
     );
   }

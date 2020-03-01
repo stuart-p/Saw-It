@@ -19,10 +19,10 @@ class VoteElement extends React.Component {
     event.preventDefault();
     return new Promise((resolve, reject) => {
       this.setState(currentState => {
-        if (currentState.voteModification >= 10)
+        if (currentState.voteModification >= 5)
           return reject({
             response: {
-              data: { msg: "You can only applaud a maximum of 10 times" }
+              data: { msg: "You can only applaud a maximum of 5 times" }
             }
           });
         return {
@@ -35,7 +35,11 @@ class VoteElement extends React.Component {
         return api.modifyVotesOnElement(`${route}/${element_id}`, voteValue);
       })
       .then(() => {
-        NotificationManager.success("You applauded!", "Success!", 1000);
+        NotificationManager.success(
+          `You applauded ${this.state.voteModification} times!`,
+          "Success!",
+          1000
+        );
       })
       .catch(err => {
         NotificationManager.error(err.response.data.msg, "Error", 2000);
