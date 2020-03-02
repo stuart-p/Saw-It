@@ -55,9 +55,11 @@ class Header extends React.Component {
   };
 
   render() {
+    const { topicsShowing, stickyNavShowing } = this.state;
+    const { staticHeaderPosition, toggleTopicsShowing, closeTopicsMenu } = this;
     return (
-      <HeaderContainer showTopics={this.state.topicsShowing}>
-        <TitleHeaderContainer ref={this.staticHeaderPosition}>
+      <HeaderContainer showTopics={topicsShowing}>
+        <TitleHeaderContainer ref={staticHeaderPosition}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="75"
@@ -71,9 +73,9 @@ class Header extends React.Component {
           <SubHeading header>hello, {this.props.loggedInAs}!</SubHeading>
           <HeaderButtonBox>
             <Button
-              onClick={this.toggleTopicsShowing}
+              onClick={toggleTopicsShowing}
               menuExpand
-              topicsExpanded={this.state.topicsShowing}
+              topicsExpanded={topicsShowing}
             >
               <img
                 src="https://img.icons8.com/metro/26/000000/expand-arrow.png"
@@ -83,29 +85,29 @@ class Header extends React.Component {
           </HeaderButtonBox>
         </TitleHeaderContainer>
         <TopicHeaderContainer
-          showTopics={this.state.topicsShowing}
-          stickyNavShowing={this.state.stickyNavShowing}
+          showTopics={topicsShowing}
+          stickyNavShowing={stickyNavShowing}
         >
           <ExpandedButtonContainer>
             <Link to="/">
-              <Button onClick={this.closeTopicsMenu}>home</Button>
+              <Button onClick={closeTopicsMenu}>home</Button>
             </Link>
             <Link to="/about">
-              <Button onClick={this.closeTopicsMenu}>about</Button>
+              <Button onClick={closeTopicsMenu}>about</Button>
             </Link>
             <a href="https://stuart-p.github.io">
               <Button>My Portfolio</Button>
             </a>
           </ExpandedButtonContainer>
           <SubHeading>Browse topics:</SubHeading>
-          <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+          <TopicList closeTopicsMenu={closeTopicsMenu} />
         </TopicHeaderContainer>
-        {this.state.stickyNavShowing && (
-          <StickyNavBar showTopics={this.state.topicsShowing}>
+        {stickyNavShowing && (
+          <StickyNavBar showTopics={topicsShowing}>
             <Button
-              onClick={this.toggleTopicsShowing}
+              onClick={toggleTopicsShowing}
               menuExpand
-              topicsExpanded={this.state.topicsShowing}
+              topicsExpanded={topicsShowing}
             >
               <img
                 src="https://img.icons8.com/metro/26/000000/expand-arrow.png"
@@ -113,22 +115,22 @@ class Header extends React.Component {
               />
             </Button>
             <TopicHeaderContainer
-              showTopics={this.state.topicsShowing}
-              stickyNavShowing={!this.state.stickyNavShowing}
+              showTopics={topicsShowing}
+              stickyNavShowing={!stickyNavShowing}
             >
               <ExpandedButtonContainer>
                 <Link to="/">
-                  <Button onClick={this.closeTopicsMenu}>home</Button>
+                  <Button onClick={closeTopicsMenu}>home</Button>
                 </Link>
                 <Link to="/about">
-                  <Button onClick={this.closeTopicsMenu}>about</Button>
+                  <Button onClick={closeTopicsMenu}>about</Button>
                 </Link>
                 <a href="https://stuart-p.github.io">
                   <Button>My Portfolio</Button>
                 </a>
               </ExpandedButtonContainer>
               <SubHeading>Browse topics:</SubHeading>
-              <TopicList closeTopicsMenu={this.closeTopicsMenu} />
+              <TopicList closeTopicsMenu={closeTopicsMenu} />
             </TopicHeaderContainer>
           </StickyNavBar>
         )}

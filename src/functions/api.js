@@ -64,7 +64,6 @@ export const postArticleToTopic = (topic, author, title, body) => {
   return axios
     .post(baseURL + `articles`, { topic, author, title, body })
     .then(res => {
-      console.log(res);
       const postedArticle = res.data.article;
       return postedArticle;
     });

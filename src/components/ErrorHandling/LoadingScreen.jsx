@@ -8,8 +8,8 @@ const LoadingScreen = () => {
       <div>
         <Eye height="150" width="150" />
       </div>
-      <h1>LOADING</h1>
-      <Spinner fill="#bbbbbb" />
+      <h1>LOADING...</h1>
+      <Spinner />
     </FullScreenContainer>
   );
 };

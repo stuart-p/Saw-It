@@ -34,11 +34,11 @@ class ArticleList extends Component {
   addArticleToTopic = (articleTitle, articleBody) => {
     const tempArticle = {
       article_id: -1,
+      comment_count: 0,
       votes: 0,
       created_at: new Date().toUTCString(),
       author: this.props.loggedInAs,
       title: articleTitle,
-      body: articleBody,
       topic: this.props.topicSlug
     };
     return new Promise(resolve => {
@@ -59,7 +59,8 @@ class ArticleList extends Component {
         const articleArrayWithPostInserted = this.state.articleArray.map(
           article => {
             if (article === tempArticle) {
-              return postedArticleObject;
+              console.log(article, postedArticleObject);
+              return { ...article, ...postedArticleObject };
             } else return { ...article };
           }
         );
@@ -80,9 +81,7 @@ class ArticleList extends Component {
         this.setState(currentState => {
           const articleArrayWithTempArticleRemoved = currentState.articleArray.filter(
             article => {
-              if (article !== tempArticle) {
-                return article;
-              }
+              return article !== tempArticle;
             }
           );
           return { articleArray: articleArrayWithTempArticleRemoved };

@@ -37,7 +37,7 @@ class ArticlePage extends Component {
         });
       });
   };
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate = prevProps => {
     if (this.props.article_id !== prevProps.article_id) {
       return new Promise(resolve => {
         this.setState({ isLoading: true, err: null }, resolve);

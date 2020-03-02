@@ -44,17 +44,20 @@ class AddArticle extends Component {
   };
 
   render() {
+    const {
+      inputFormShowing,
+      articleTitleInput,
+      articleBodyInput
+    } = this.state;
     return this.props.selectedTopic ? (
       <AddElementContainer>
-        {!this.state.inputFormShowing && (
+        {!inputFormShowing && (
           <Button onClick={this.enableInputFormShowing} addPost>
             Add Article
           </Button>
         )}
-        <FullScreenElementInputContainer
-          inputFormShowing={this.state.inputFormShowing}
-        >
-          {this.state.inputFormShowing && (
+        <FullScreenElementInputContainer inputFormShowing={inputFormShowing}>
+          {inputFormShowing && (
             <>
               <Button onClick={this.disableInputFormShowing} closeAddPostForm>
                 <img
@@ -69,7 +72,7 @@ class AddArticle extends Component {
                   aria-label="Add an article title"
                   placeholder="Your Article Title..."
                   onChange={this.onChange}
-                  value={this.state.commentInput}
+                  value={articleTitleInput}
                   name="articleTitleInput"
                   required
                 ></input>
@@ -77,7 +80,7 @@ class AddArticle extends Component {
                   aria-label="Add an article description"
                   placeholder="Your Text Post..."
                   onChange={this.onChange}
-                  value={this.state.commentInput}
+                  value={articleBodyInput}
                   name="articleBodyInput"
                   required
                 ></textarea>
@@ -91,31 +94,6 @@ class AddArticle extends Component {
       <> </>
     );
   }
-  // render() {
-  //   return (
-  //     <AddElementContainer>
-  //       <AddElementForm onSubmit={this.onSubmit}>
-  //         <textarea
-  //           aria-label="Add an article title"
-  //           placeholder="Your Article Title..."
-  //           onChange={this.onChange}
-  //           value={this.state.commentInput}
-  //           name="articleTitleInput"
-  //           required
-  //         ></textarea>
-  //         <textarea
-  //           aria-label="Add an article description"
-  //           placeholder="Your Text Post..."
-  //           onChange={this.onChange}
-  //           value={this.state.commentInput}
-  //           name="articleBodyInput"
-  //           required
-  //         ></textarea>
-  //         <Button>Post</Button>
-  //       </AddElementForm>
-  //     </AddElementContainer>
-  //   );
-  // }
 }
 
 export default AddArticle;

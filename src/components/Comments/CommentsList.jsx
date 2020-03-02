@@ -83,7 +83,7 @@ class CommentsList extends Component {
         NotificationManager.success("comment deleted!", "success!", 2000);
       })
       .catch(err => {
-        NotificationManager.error(err.response.data.msg, "error", 2000);
+        NotificationManager.error("failed to delete comment", "error", 2000);
       });
   };
 

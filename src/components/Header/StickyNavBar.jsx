@@ -1,11 +1,9 @@
 import React from "react";
 import { StickNavContainer } from "../../Style/Containers.styles";
 
-const StickyNavBar = props => {
+const StickyNavBar = ({ showTopics, children }) => {
   return (
-    <StickNavContainer showTopics={props.showTopics}>
-      {props.children}
-    </StickNavContainer>
+    <StickNavContainer showTopics={showTopics}>{children}</StickNavContainer>
   );
 };
 

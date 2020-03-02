@@ -36,18 +36,17 @@ class AddComment extends Component {
   };
 
   render() {
+    const { inputFormShowing, commentInput } = this.state;
     return (
       <AddElementContainer>
-        {!this.state.inputFormShowing && (
+        {!inputFormShowing && (
           <Button onClick={this.enableInputFormShowing} addPost>
             Add Comment
           </Button>
         )}
 
-        <FullScreenElementInputContainer
-          inputFormShowing={this.state.inputFormShowing}
-        >
-          {this.state.inputFormShowing && (
+        <FullScreenElementInputContainer inputFormShowing={inputFormShowing}>
+          {inputFormShowing && (
             <>
               <Button onClick={this.disableInputFormShowing} closeAddPostForm>
                 <img
@@ -61,7 +60,7 @@ class AddComment extends Component {
                   aria-label="Add a comment"
                   placeholder="Add a comment..."
                   onChange={this.onChange}
-                  value={this.state.commentInput}
+                  value={commentInput}
                   required
                 ></textarea>
                 <Button>Post</Button>
@@ -72,22 +71,6 @@ class AddComment extends Component {
       </AddElementContainer>
     );
   }
-  // render() {
-  //   return (
-  //     <AddElementContainer>
-  //       <AddElementForm onSubmit={this.onSubmit}>
-  //         <textarea
-  //           aria-label="Add a comment"
-  //           placeholder="Add a comment..."
-  //           onChange={this.onChange}
-  //           value={this.state.commentInput}
-  //           required
-  //         ></textarea>
-  //         <Button>Post</Button>
-  //       </AddElementForm>
-  //     </AddElementContainer>
-  //   );
-  // }
 }
 
 export default AddComment;
