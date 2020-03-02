@@ -44,7 +44,7 @@ class AddArticle extends Component {
   };
 
   render() {
-    return (
+    return this.props.selectedTopic ? (
       <AddElementContainer>
         {!this.state.inputFormShowing && (
           <Button onClick={this.enableInputFormShowing} addPost>
@@ -87,6 +87,8 @@ class AddArticle extends Component {
           )}
         </FullScreenElementInputContainer>
       </AddElementContainer>
+    ) : (
+      <> </>
     );
   }
   // render() {

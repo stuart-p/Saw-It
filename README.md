@@ -21,20 +21,22 @@ The following pages and functionality is currently available:
 ```
 https://saw-it-here-first.netlify.com
 ├── * (Header nav bar. Goto landing page, visit portfolio, browse all topics)
+
 ├── / (view all articles, sort and order all articles, applaud articles)
-      ├── /topic_name (view articles on a topic, sort articles, applaud articles)
-            ├── /article_id (view specific article details, view comments on an
-                article, delete your own comments, add new comments, vote on
-                comments)
+      ├── /about (general outline of project)
+      ├── /topic
+            ├──/topic_name (view articles on a topic, sort articles, applaud articles, add articles, delete articles)
+                  ├── /article
+                        ├──/article_id (view specific article details, view comments on an article, delete your own comments, add new comments, vote on comments)
 ```
 
-A Header bar is present on all pages, and can be used for core navigation of the site. Pressing the arrow buttons displays the nav menu, which includes a list of all topics on the database, as well as links to the landing page and an external link to my portfolio site.
+A Header bar is present on all pages, and can be used for core navigation of the site. Pressing the arrow buttons displays the nav menu, which includes a list of all topics on the database, as well as links to the landing page, about page and an external link to my portfolio site.
 
 The main landing page displays all articles on the database, and these can be ordered according to creation date, comment count and vote count. The data from the server is paginated, and this can be navigated using the arrow buttons at the bottom of the page.
 
-The topic page shows all articles relating to a specific topic. Again, these can be sorted and paginated through. Clicking on an article card will bring up the article page.
+The topic page shows all articles relating to a specific topic. Again, these can be sorted and paginated through. Clicking on an article card will bring up the article page. New articles can be added using the 'Add Article' button in the footer. You can delete your own comments using the trash icon on the article.
 
-The Article page shows all comments relating to a specific article. Comments can be added to the database using the comment bar in the footer, and you can delete your own comments using the trash can icon on the comment.
+The Article page shows all comments relating to a specific article. Comments can be added to the database using the 'Add Comment' button in the footer, and you can delete your own comments using the trash can icon on the comment.
 
 ## Getting Started (development)
 
@@ -51,6 +53,8 @@ react: ^16.12.0
 axios: ^0.19.2
 classnames: ^2.2.6
 styled-components: ^5.0.1
+react-app-rewired: ^2.1.5
+react-app-rewire-styled-components: ^3.0.2
 ```
 
 ### Installation

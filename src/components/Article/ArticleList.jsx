@@ -209,7 +209,10 @@ class ArticleList extends Component {
               page={this.state.queries.p}
               setQueryValues={this.setQueryValues}
             >
-              <AddArticle addArticleToTopic={this.addArticleToTopic} />
+              <AddArticle
+                addArticleToTopic={this.addArticleToTopic}
+                selectedTopic={this.props.topicSlug}
+              />
             </NavigatePages>
           </>
         )}
