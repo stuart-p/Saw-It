@@ -59,7 +59,6 @@ class ArticleList extends Component {
         const articleArrayWithPostInserted = this.state.articleArray.map(
           article => {
             if (article === tempArticle) {
-              console.log(article, postedArticleObject);
               return { ...article, ...postedArticleObject };
             } else return { ...article };
           }
