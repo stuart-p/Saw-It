@@ -90,6 +90,9 @@ class Header extends React.Component {
             <Link to="/">
               <Button onClick={this.closeTopicsMenu}>home</Button>
             </Link>
+            <Link to="/about">
+              <Button onClick={this.closeTopicsMenu}>about</Button>
+            </Link>
             <a href="https://stuart-p.github.io">
               <Button>My Portfolio</Button>
             </a>
@@ -116,6 +119,9 @@ class Header extends React.Component {
               <ExpandedButtonContainer>
                 <Link to="/">
                   <Button onClick={this.closeTopicsMenu}>home</Button>
+                </Link>
+                <Link to="/about">
+                  <Button onClick={this.closeTopicsMenu}>about</Button>
                 </Link>
                 <a href="https://stuart-p.github.io">
                   <Button>My Portfolio</Button>

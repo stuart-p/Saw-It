@@ -109,4 +109,9 @@ export const StyledPara = styled.p`
     css`
       grid-area: commentBody;
     `}
+
+    a {
+    font-weight: bolder;
+    color: ${theme.a};
+  }
 `;

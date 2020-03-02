@@ -5,7 +5,7 @@ import { CardHeading, SubHeading } from "../../Style/Texts.styles";
 
 const TopicCard = ({ slug, description, closeTopicsMenu }) => {
   return (
-    <Link to={`/${slug}`} onClick={closeTopicsMenu}>
+    <Link to={`/topic/${slug}`} onClick={closeTopicsMenu}>
       <TopicCardContainer>
         <CardHeading>{slug}</CardHeading>
         <SubHeading>{description}</SubHeading>

@@ -59,7 +59,7 @@ class ArticlePage extends Component {
         ) : (
           <>
             <BackToTopicHeaderContainer>
-              <Link to={`/${this.props.topicSlug}`}>
+              <Link to={`/topic/${this.props.topicSlug}`}>
                 <Button backToTopicPage>Back to topic main page</Button>
               </Link>
             </BackToTopicHeaderContainer>

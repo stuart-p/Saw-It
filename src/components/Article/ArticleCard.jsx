@@ -25,7 +25,7 @@ const ArticleCard = ({
   };
 
   return (
-    <StyledLink to={`/${topic}/article/${article_id}`}>
+    <StyledLink to={`/topic/${topic}/article/${article_id}`}>
       <ArticleCardContainer>
         <SubHeading articleTopicName>{topic}</SubHeading>
         <SubHeading articlePostDetails>

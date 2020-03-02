@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import { Router } from "@reach/router";
 import TopicPage from "./components/Topic/TopicPage";
+import AboutPage from "./components/LandingPage/AboutPage";
 import ArticlePage from "./components/Article/ArticlePage";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ErrorScreen from "./components/ErrorHandling/ErrorScreen";
@@ -26,9 +27,13 @@ class App extends React.Component {
         <NotificationContainer />
         <Router className="main">
           <LandingPage path="/" loggedInAs={this.state.loggedInAs} />
-          <TopicPage path="/:topicSlug" loggedInAs={this.state.loggedInAs} />
+          <AboutPage path="/about" loggedInAs={this.state.loggedInAs} />
+          <TopicPage
+            path="/topic/:topicSlug"
+            loggedInAs={this.state.loggedInAs}
+          />
           <ArticlePage
-            path="/:topicSlug/article/:article_id"
+            path="/topic/:topicSlug/article/:article_id"
             loggedInAs={this.state.loggedInAs}
           />
           <ErrorScreen

@@ -389,3 +389,9 @@ export const StickNavContainer = styled.div`
       box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     `}
 `;
+
+export const AboutPageTextContainer = styled.section`
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+`;
