@@ -77,6 +77,16 @@ class ArticleList extends Component {
       })
       .catch(err => {
         NotificationManager.error("error adding article", "error", 2000);
+        this.setState(currentState => {
+          const articleArrayWithTempArticleRemoved = currentState.articleArray.filter(
+            article => {
+              if (article !== tempArticle) {
+                return article;
+              }
+            }
+          );
+          return { articleArray: articleArrayWithTempArticleRemoved };
+        });
       });
   };
 

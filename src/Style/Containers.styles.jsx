@@ -16,7 +16,7 @@ export const FullScreenContainer = styled.div`
 
   div {
     width: 100%;
-    background-color: ${theme.a};
+    background-color: ${theme.b};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +27,17 @@ export const FullScreenContainer = styled.div`
     font-size: 36px;
     margin: auto auto;
     padding-top: 20%;
+  }
+  svg {
+    flex-grow: 5;
+    height: 120px;
+    width: 120px;
+  }
+  svg path {
+    stroke: ${theme.a};
+  }
+  svg circle {
+    fill: ${theme.a};
   }
 `;
 
@@ -165,7 +176,7 @@ export const ArticleDetailContainer = styled.section`
 export const BackToTopicHeaderContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin 0 20px 0 0;
+  margin: 0 20px 0 0;
 `;
 
 export const CommentsListContainer = styled.ul`
@@ -226,24 +237,60 @@ export const AddElementContainer = styled.div`
   max-width: 750px;
   display: flex;
   justify-content: center;
+  flex-direction: column-reverse;
+  align-items: center;
 `;
 
 export const AddElementForm = styled.form`
   display: flex;
+  flex-direction: column;
   width: 80%;
   margin: 0 0 5px 0px;
+  flex-grow: 1;
+  input {
+    padding: 10px 5px;
+    margin: 5px 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: ${theme.c};
+    border-radius: 3px;
+    border: solid ${theme.e} 2px;
 
+    font-size: 16px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    resize: none;
+  }
   textarea {
     flex-grow: 1;
+    padding: 10px 5px;
+    margin: 5px 0;
     font-family: "Open Sans", sans-serif;
+    background-color: ${theme.c};
+    border: solid ${theme.e} 2px;
+    border-radius: 3px;
+    font-size: 16px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    resize: none;
+    overflow: auto;
   }
+`;
 
-  button {
-    margin: 0;
-    border-radius: 0px;
-    background-color: ${theme.b};
-    color: ${theme.e};
-  }
+export const FullScreenElementInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: ${theme.d};
+  height: 0;
+  border-radius: 3px;
+  max-height: 80vh;
+  overflow: hidden;
+  transition: all 1s ease;
+  ${props =>
+    props.inputFormShowing &&
+    css`
+      height: 500px;
+    `}
 `;
 
 export const TopicHeaderContainer = styled.div`

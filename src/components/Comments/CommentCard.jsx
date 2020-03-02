@@ -20,7 +20,7 @@ const CommentCard = ({
   return (
     <CommentCardContainer>
       <SubHeading commentPostDetails>
-        {author === loggedInAs ? "you" : author} posted {howLongAgo}
+        {author === loggedInAs ? "you" : author} commented {howLongAgo}
       </SubHeading>
       <StyledPara commentBody>{body}</StyledPara>
       <VoteElement route="comments" element_id={comment_id} votes={votes} />

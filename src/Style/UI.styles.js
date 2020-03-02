@@ -105,6 +105,29 @@ export const Button = styled.button`
        }
      `}
 
+${props =>
+  props.addPost &&
+  css`
+    width: 200px;
+    margin: 0;
+    border-radius: 2px;
+    background-color: ${theme.b};
+    color: ${theme.e};
+  `}
+     ${props =>
+       props.closeAddPostForm &&
+       css`
+         background-color: ${theme.a};
+         padding: 3px 0 0 0;
+         margin: 0 0 0 auto;
+         width: 40px;
+         height: 40px;
+         border: solid 2px ${theme.e};
+         border-radius: 2px;
+         box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3),
+           1px 1px 2px rgba(0, 0, 0, 0.3);
+       `}
+
   
 
 `;
